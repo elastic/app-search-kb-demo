@@ -5,6 +5,7 @@
     "start": "yarn workspace eas-kb-demo-frontend start",
     "build": "yarn workspace eas-kb-demo-frontend build",
     "test": "yarn workspace eas-kb-demo-frontend test",
+    "lint": "yarn workspaces run lint",
     "dataimport": "yarn workspace eas-kb-demo-dataimport dataimport"
   }
 }

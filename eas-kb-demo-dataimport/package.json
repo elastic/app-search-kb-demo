@@ -1,14 +1,19 @@
 {
-    "private": true,
-    "name": "eas-kb-demo-dataimport",
-    "version": "0.0.1",
-    "scripts": {
-      "dataimport": "node scripts/dataimport.js"
-    },
-    "dependencies": {
-      "@elastic/app-search-node": "^7.6.0",
-      "cli-progress": "^3.6.0",
-      "moment": "^2.24.0",
-      "prompts": "^2.3.1"
-    }
+  "private": true,
+  "name": "eas-kb-demo-dataimport",
+  "version": "0.0.1",
+  "scripts": {
+    "dataimport": "node scripts/dataimport.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@elastic/app-search-node": "^7.6.0",
+    "cli-progress": "^3.6.0",
+    "moment": "^2.24.0",
+    "prompts": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-strongloop": "^2.1.0"
   }
+}
