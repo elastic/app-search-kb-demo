@@ -2,6 +2,9 @@
   "private": true,
   "workspaces": ["eas-kb-demo-dataimport", "eas-kb-demo-frontend"],
   "scripts": {
+    "start": "yarn workspace eas-kb-demo-frontend start",
+    "build": "yarn workspace eas-kb-demo-frontend build",
+    "test": "yarn workspace eas-kb-demo-frontend test",
     "dataimport": "yarn workspace eas-kb-demo-dataimport dataimport"
   }
 }

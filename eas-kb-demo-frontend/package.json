@@ -1,5 +1,35 @@
 {
     "private": true,
     "name": "eas-kb-demo-frontend",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "dependencies": {
+      "@testing-library/jest-dom": "^5.1.1",
+      "@testing-library/react": "^9.3.2",
+      "@testing-library/user-event": "^10.0.0",
+      "node-sass": "^4.13.1",
+      "react": "^16.13.0",
+      "react-dom": "^16.13.0",
+      "react-scripts": "3.4.0"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "lint": "eslint src"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
   }
