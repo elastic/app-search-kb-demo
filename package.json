@@ -1,4 +1,7 @@
 {
-    "private": true,
-    "workspaces": ["dataimport", "frontend"]
+  "private": true,
+  "workspaces": ["eas-kb-demno-dataimport", "eas-kb-demno-frontend"],
+  "scripts": {
+    "dataimport": "yarn workspace eas-kb-demno-dataimport dataimport"
   }
+}
