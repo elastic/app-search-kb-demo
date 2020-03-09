@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+    environment:
+    - "node.name=es-node"
+    - "discovery.type=single-node"
+    - "cluster.name=app-search-docker-cluster"
+    - "bootstrap.memory_lock=true"
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    - "ELASTIC_PASSWORD=elasticpassword"
+    - "xpack.security.enabled=true"
+    - "xpack.license.self_generated.type=trial"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+  app-search:
+    image: docker.elastic.co/app-search/app-search:7.6.1
+    environment:
+    - "elasticsearch.host=http://elasticsearch:9200"
+    - "elasticsearch.password=elasticpassword"
+    - "app_search.listen_host=0.0.0.0"
+    - "APP_SEARCH_DEFAULT_PASSWORD=password"
+    - "allow_es_settings_modification=true"
+    - "VIRTUAL_PORT=3002"
+    - "secret_session_key=833015eb940d5299db0957aea5bbe451921fdb31e05d61600d0cdb65caf2c632a1fbc8623c7d333e59596dd7316758e6629a2290c06c621e33e025d6f474a622"
+    - "VIRTUAL_HOST=localhost"
+    ports:
+    - 3002:3002
+volumes:
+  esdata:
