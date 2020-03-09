@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "eas-kb-demno-dataimport",
+    "name": "eas-kb-demo-dataimport",
     "version": "0.0.1",
     "scripts": {
       "dataimport": "node scripts/dataimport.js"
