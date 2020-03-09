@@ -1,12 +1,16 @@
 # Elastic App Search Knowledge Base Demo
 
-## What is the Elastic App Search Knowledge Base Demo?
-
-**TODO**
-
 ## Usage
 
-## Starting the stack
+### Install dependencies
+
+The project can be installed by running:
+
+```bash
+yarn install
+```
+
+### Starting the stack
 
 The demo relies on Elastic App Search and you need the stack to be set up before being able to continue.
 
@@ -16,12 +20,12 @@ The easiest way to get the stack up and runing is to use the `docker-compose` fi
 docker-compose up -d
 ```
 
-After the stack will have finished to start, you can then access to App Search through your browser at [http://localhost:3002] with the following credentials:
+After the stack will have finished to start, you can then access to App Search through your browser at http://localhost:3002 with the following credentials:
 
 - **login:** `app_search`
 - **password:** `password`
 
-## Enabling meta engines
+### Enabling meta engines
 
 This demo uses meta engine which are available only when using a Platinium license.
 You have to start a new trial for your App Search instance using the following command:
@@ -36,7 +40,7 @@ You can then restart App Search to make the change effective:
 docker-compose restart app-search
 ```
 
-## Importing the data
+### Importing the data
 
 The demo uses two different data sources:
 - data scrapped from the Elastic documentation (`dataimport/data/data/elastic-co-docs.json`)
@@ -54,9 +58,13 @@ yarn dataimport
   If needed, relevance tunning should be done in the meta engine.
 - You will need to information during the setup:
     - App Search API base URL: default is set to `http://localhost:3002/api/as/v1/` (should be fine)
-    - App Search API private key: you can find it into the credentials section of the App Search dashboard ([http://localhost:3002/as#/credentials])
+    - App Search API private key: you can find it into the credentials section of the App Search dashboard (http://localhost:3002/as#/credentials)
 
 
-## Frontend
+### Frontend
 
-**TODO**
+Once the stack is running and your content has been imported, you can run the frontend buy using:
+
+```bash
+yarn start
+```
