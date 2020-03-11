@@ -19,12 +19,9 @@ code {
 .app-content {
   background-color: #F5F7FA;
   color: #69707D;
-  height: calc(100vh - 84px);
+  min-height: calc(100vh - 84px);
   padding: 84px 0 0 0;
-
   display: flex;
-  box-orient: vertical;
-  box-direction: normal;
   flex-direction: column;
 
   a {
