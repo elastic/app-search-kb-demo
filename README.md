@@ -25,20 +25,17 @@ After the stack will have finished to start, you can then access to App Search t
 - **login:** `app_search`
 - **password:** `password`
 
-### Enabling meta engines
+**Notes :**
 
-This demo uses meta engine which are available only when using a Platinium license.
+- This demo uses meta engine which are available only when using a Platinium license. <br/>
 You have to start a new trial for your App Search instance using the following command:
 
 ```bash
 docker-compose exec elasticsearch  curl -XPOST -uelastic:elasticpassword "localhost:9200/_license/start_trial?acknowledge=true"
-```
-
-You can then restart App Search to make the change effective:
-
-```bash
 docker-compose restart app-search
 ```
+- When using Docker for Mac, please make sure you have at least 4GiB of memory allocated to Docker (`Preferences > Advanced`). <br />
+  Out of memory errors can cause ElasticSearch or App Search container to be killed (`docker logs --tail` can help to detect it).
 
 ### Importing the data
 
@@ -63,7 +60,7 @@ yarn dataimport
 
 ### Frontend
 
-Once the stack is running and your content has been imported, you can run the frontend buy using:
+Once the stack is running and your content has been imported, you can run the frontend by using:
 
 ```bash
 yarn start
