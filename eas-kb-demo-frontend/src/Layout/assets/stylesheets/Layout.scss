@@ -1,38 +1,40 @@
-.app-header {
-  width: 100%;
-  height: 84px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: white;
-  box-shadow: 0px 0.498106px 1.1069px rgba(0, 0, 0, 0.0365489), 0px 1.19702px 2.66004px rgba(0, 0, 0, 0.0525061), 0px 2.25388px 5.00862px rgba(0, 0, 0, 0.065), 0px 4.02054px 8.93452px rgba(0, 0, 0, 0.0774939), 0px 7.51997px 16.711px rgba(0, 0, 0, 0.0934511), 0px 18px 40px rgba(0, 0, 0, 0.13);
-}
+.layout {
+  &__header {
+    width: 100%;
+    height: 84px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 0.498106px 1.1069px rgba(0, 0, 0, 0.0365489), 0px 1.19702px 2.66004px rgba(0, 0, 0, 0.0525061), 0px 2.25388px 5.00862px rgba(0, 0, 0, 0.065), 0px 4.02054px 8.93452px rgba(0, 0, 0, 0.0774939), 0px 7.51997px 16.711px rgba(0, 0, 0, 0.0934511), 0px 18px 40px rgba(0, 0, 0, 0.13);
 
-.app-header-content {
-  height: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    &__logo {
+      margin: 23px auto;
+    }
+  
+    &__content {
+      height: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  }
 
-.app-header-logo {
-  margin: 23px auto;
-}
+  &__footer {
+    margin: 60px auto;
+    border-top: 1px solid #D3DAE6;
+    max-width: 722px;
+    height: 43px;
+    font-size: 12px;
+    width: 100%;
 
-.app-footer {
-  margin: 60px auto;
-  border-top: 1px solid #D3DAE6;
-  max-width: 722px;
-  height: 43px;
-  font-size: 12px;
-  width: 100%;
-
-  p {
-    margin: 0;
-    line-height: 100%;
-    height: 100%;
-    justify-content: center;
-    display: flex;
-    align-items: flex-end;
+    p {
+      margin: 0;
+      line-height: 100%;
+      height: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: flex-end;
+    }
   }
 }

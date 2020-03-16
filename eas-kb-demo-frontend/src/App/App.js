@@ -9,7 +9,7 @@ import { SearchContainer } from '../Search';
 const App = () => {
   return <div className="app">
     <Header />
-    <div className="app-content">
+    <div className="app__content">
       <SearchContainer />
       <ContactCallout />
       <Footer />

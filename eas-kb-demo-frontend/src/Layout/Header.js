@@ -5,9 +5,9 @@ import logo from './assets/images/elastic-logo.svg';
 import './assets/stylesheets/Layout.scss';
 
 const Header = () => {
-  return <header className="app-header">
-    <div className="app-header-content">
-      <img src={logo} className="app-header-logo" alt="Elastic logo" />
+  return <header className="layout__header">
+    <div className="layout__header__content">
+     <a href='/'><img src={logo} className="layout__header__logo" alt="Elastic logo" /></a> 
     </div>
   </header>
 }

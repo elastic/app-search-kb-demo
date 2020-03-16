@@ -24,11 +24,13 @@ code {
     monospace;
 }
 
-.app-content {
-  background-color: #F5F7FA;
-  color: #69707D;
-  min-height: calc(100vh - 84px);
-  padding: 84px 0 0 0;
-  display: flex;
-  flex-direction: column;
+.app{
+  &__content {
+    background-color: #F5F7FA;
+    color: #69707D;
+    min-height: calc(100vh - 84px);
+    padding: 84px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
 }
