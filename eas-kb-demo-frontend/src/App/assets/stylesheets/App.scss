@@ -1,9 +1,17 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFontslntwght.woff") format("woff"),
+       url("../fonts/Inter-VariableFontslntwght.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   background: #69707D;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,8 +31,4 @@ code {
   padding: 84px 0 0 0;
   display: flex;
   flex-direction: column;
-
-  a {
-    color: #69707D;
-  }
 }
