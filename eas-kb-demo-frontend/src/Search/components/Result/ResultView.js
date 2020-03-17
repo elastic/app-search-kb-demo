@@ -15,7 +15,6 @@ const ResultLink = ({ result, ...props }) => {
 }
 
 const getResultTitle = ({ result, className, onClickLink }) => {
-  console.log(result);
   const { 
     title: { snippet: title, raw: rawTitle },
     website_area: { raw: resultType },
