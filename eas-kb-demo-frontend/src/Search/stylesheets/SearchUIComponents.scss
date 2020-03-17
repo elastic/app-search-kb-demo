@@ -16,11 +16,11 @@
     border: none;
 
     &:focus {
-    outline: none;
+      outline: none;
     }
 
     &::placeholder {
-    color: #98A2B3;
+      color: #98A2B3;
     }
   }
 
@@ -47,6 +47,10 @@
   line-height: 15px;
   border-bottom: 1px solid #D3DAE6;
   padding: 0 0 13px;
+
+  em {
+    font-weight: bold;
+  }
 }
 
 .sui-paging {
@@ -54,32 +58,52 @@
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 24px;
   padding: 30px 0 22px;
   border-top: 1px solid #D3DAE6;
-  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
     
   & > li {
-    display: inline;
+    display: inline-block;
     text-align: center;
-    padding: 0px 8px;
+    padding: 0px 2px;
     cursor: pointer;
-    margin: 0;
+    margin: 0 4px;
+    outline: none;
+    line-height: 24px;
 
-    &.rc-pagination-jump-next {
+    &.rc-pagination-jump-next, &.rc-pagination-jump-prev {
       .rc-pagination-item-link:after {
         content: '...'
       } 
     }
 
-    &.rc-pagination-item-active {
-      text-decoration: underline;
-      color: #006BB4;
-      font-weight: bold;
+    &.rc-pagination-prev, &.rc-pagination-next {
+      height: 24px;
+      width: 4px;
+      background: no-repeat center url(../images/arrow-icon.png);
+      &.rc-pagination-prev {
+        transform: rotate(180deg);
+        margin: 0 6px 0 4px;
+      }
+
+      &[aria-disabled=true] {
+        opacity: 0.3;
+        cursor: default;
+      }
     }
 
-    a {
-      outline: none
+    &.rc-pagination-item-active a {
+      font-weight: bold;
+      text-decoration: underline;
+      color: #006BB4;
+    }
+
+    a, a:active, a:hover, a:focus {
+      outline: 0;
+      outline-offset: 0;
+      box-shadow: none;
     }
   }
 }
