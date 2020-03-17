@@ -1,0 +1,35 @@
+.search-container {
+  .facet {
+    &:not(:first-child) {
+        margin: 42px 0;
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        color: #69707D;
+        border-bottom: 1px solid #D3DAE6;
+        padding: 0 0 13px;
+    }
+
+    &__options {
+        margin: 10px 0;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 33px;
+        list-style: none;
+        padding: 0;
+    }
+  }
+
+  a {
+    color: #69707D;
+    text-decoration: none;
+  }
+}
+
+
+
