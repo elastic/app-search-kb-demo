@@ -3,6 +3,7 @@ import React from 'react';
 import { PagingInfo, Paging, SearchBox, SearchProvider, Results, WithSearch } from "@elastic/react-search-ui";
 
 import { ProductFacet, PageTypeFacet, ResultView } from './components'
+
 import searchConnector from './SearchConnector';
 
 import './stylesheets/Search.scss';
