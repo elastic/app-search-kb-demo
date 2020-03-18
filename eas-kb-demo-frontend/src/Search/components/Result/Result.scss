@@ -11,6 +11,12 @@
     align-items: center;
     color: black;
 
+    .product-icon {
+      width: 21px;
+      height: 21px;
+      margin-right: 8px;
+    }
+
     &__badge {
       padding: 1px 8px;
       border: 1px solid #D3DAE6;
@@ -85,7 +91,7 @@
 
 .search-container {
   
-  &__search-result-layout__list__result {
+  & &__search-result-layout__list__result {
     @include search-result;
     margin: 0;
     padding: 16px 0px;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / app-search / color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-/-product-logo-/-64x64px-/-app-search-/-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-app-search-64x64-color" transform="translate(6.000000, 5.000000)">
+            <path d="M31.9689,1.6208 C28.2269,-0.5402 23.6149,-0.5402 19.8729,1.6208 L6.9119,9.1178 L25.9209,20.0918 L44.9299,9.1178 L31.9689,1.6208 Z" id="Fill-1" fill="#343741"></path>
+            <path d="M25.921,20.092 L6.9,9.111 L6.048,9.602 C2.306,11.763 0,15.757 0,20.078 L0,36.041 C0,40.363 2.306,44.357 6.048,46.517 L19.009,54 L19.009,31.067 C19.009,26.745 21.315,22.752 25.057,20.591 L25.921,20.092 Z" id="Fill-3" fill="#0077CC"></path>
+            <path d="M47.4298,13.4474 L30.1098,23.4474 C31.8348,25.5714 32.8328,28.2434 32.8328,31.0664 L32.8328,54.0004 L45.7938,46.5174 C49.5358,44.3564 51.8418,40.3634 51.8418,36.0414 L51.8418,20.0784 C51.8418,17.2594 50.8468,14.5904 49.1258,12.4684 L47.4298,13.4474 Z" id="Fill-5" fill="#FA744E"></path>
+        </g>
+    </g>
+</svg>

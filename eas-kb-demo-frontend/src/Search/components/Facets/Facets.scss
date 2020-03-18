@@ -23,6 +23,15 @@
         list-style: none;
         padding: 0;
     }
+
+    &__option__link {
+      display: flex;
+      align-items: center;
+
+      .product-icon {
+        margin: 0px 12px 0 0;
+      }
+    }
   }
 
   a {

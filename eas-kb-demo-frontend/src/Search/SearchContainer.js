@@ -14,6 +14,7 @@ const queryBaseResultFields = {
   date: { raw : { } },
   website_area: { raw: { } },
   product_version: { raw : { } },
+  product_name: { raw : { } },
   author: { raw : { } },
 }
 
@@ -75,7 +76,7 @@ const SearchContainer = () => {
     <div className="search-container__search-result-layout">
       <div className="search-container__search-result-layout__sidebar">
         <PageTypeFacet field="website_area" label="Type" />
-        <ProductFacet field="product_name" label="Product" />
+        <ProductFacet icon={true} field="product_name" label="Product" />
       </div>
       <div className="search-container__search-result-layout__main">
         <PagingInfo />

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / logging / color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-/-product-logo-/-64x64px-/-logging-/-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-logging-64x64-color" transform="translate(8.000000, 5.000000)">
+            <path d="M21,23.5415 L21,53.9995 L37,53.9995 C37,41.3665 30.664,30.2165 21,23.5415" id="Fill-1" fill="#343741"></path>
+            <path d="M0,17 L0,38 C8.837,38 16,45.164 16,54 L21,54 L21,23.542 C15.033,19.42 7.801,17 0,17" id="Fill-3" fill="#0077CC"></path>
+            <path d="M21,0 L21,17.65 C33.541,24.924 42,38.488 42,54 L48,54 L48,27 C48,12.088 35.912,0 21,0" id="Fill-5" fill="#00BFB3"></path>
+        </g>
+    </g>
+</svg>

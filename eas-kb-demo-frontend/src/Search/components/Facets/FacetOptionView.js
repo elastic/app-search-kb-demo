@@ -2,8 +2,12 @@ import React from 'react';
 
 import './Facets.scss';
 
+const productIconClassName = ({ value: productName }) => {
+  return `product-icon product-icon__${productName.replace(/\s+/g, '-').toLowerCase()}`
+}
+
 const FacetOptionView = (props) => {
-  const { value, selected } = props
+  const { value, selected, icon } = props
   const label = props.label || value
   const onRemove = (ev) => {
     ev.preventDefault()
@@ -13,13 +17,12 @@ const FacetOptionView = (props) => {
     ev.preventDefault()
     props.onSelect(value)
   }
+
   return <li className='facet__option'>
-    {selected && <span className='facet__option__label'>
-      {label} <a href="/" className='facet__option__remove'onClick={onRemove}>Remove</a>
-    </span>}
-    {!selected && <span className='facet__option__link'>
-      <a href="/" onClick={onSelect}>{label}</a>
-    </span>}
+    <a href="/" onClick={selected ? onRemove : onSelect} className='facet__option__link'>
+      {icon && <div className={productIconClassName({value})} />}
+      <span className="facet__option__link__text">{label}</span>
+    </a>
   </li>
 }
 

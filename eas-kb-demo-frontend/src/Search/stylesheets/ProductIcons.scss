@@ -1,0 +1,75 @@
+.product-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+
+  &__apm {
+    background-image: url(../images/products-icons/logo-apm-64-color.svg);
+  }
+
+  &__app-search {
+    background-image: url(../images/products-icons/logo-app-search-64-color.svg);
+  }
+
+  &__beats {
+    background-image: url(../images/products-icons/logo-beats-64-color.svg);
+  }
+
+  &__cloud {
+    background-image: url(../images/products-icons/logo-cloud-64-color.svg);
+  }
+
+  &__cloud-ece {
+    background-image: url(../images/products-icons/logo-ece-64-color.svg);
+  }
+
+  &__eck {
+    background-image: url(../images/products-icons/logo-eck-64-color.svg);
+  }
+
+  &__elasticsearch {
+    background-image: url(../images/products-icons/logo-elasticsearch-color-64.svg);
+  }
+
+  &__elastic-stack {
+    background-image: url(../images/products-icons/elastic-stack.svg);
+  }
+
+  &__endpoint-security {
+    background-image: url(../images/products-icons/logo-endpoint-64-color.svg);
+  }
+
+  &__kibana {
+    background-image: url(../images/products-icons/logo-kibana-64-color.svg);
+  }
+
+  &__logging {
+    background-image: url(../images/products-icons/logo-logging-64-color.svg);
+  }
+
+  &__logstash {
+    background-image: url(../images/products-icons/logo-logstash-64-color.svg);
+  }
+
+  &__metrics {
+    background-image: url(../images/products-icons/logo-metrics-64-color.svg);
+  }
+
+  &__siem {
+    background-image: url(../images/products-icons/logo-siem-64-color.svg);
+  }
+
+  &__site-search {
+    background-image: url(../images/products-icons/logo-site-search-32-color.svg);
+  }
+
+  &__uptime {
+    background-image: url(../images/products-icons/logo-uptime-64-color.svg);
+  }
+
+  &__workplace-search {
+    background-image: url(../images/products-icons/logo-workplace-search-64-color.svg);
+  }
+}

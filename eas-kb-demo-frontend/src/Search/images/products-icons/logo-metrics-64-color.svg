@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / metrics / color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-/-product-logo-/-64x64px-/-metrics-/-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-business-analytics-64x64-color" transform="translate(8.000000, 4.999700)">
+            <path d="M24.4092,22.8416 L18.4422,28.8076 C21.4962,31.8616 25.7152,33.7506 30.3752,33.7506 C35.0352,33.7506 39.2542,31.8616 42.3072,28.8076 L36.3412,22.8416 C33.0462,19.5466 27.7042,19.5466 24.4092,22.8416" id="Fill-1" fill="#343741"></path>
+            <path d="M20.873,19.306 C23.411,16.768 26.786,15.37 30.375,15.37 C33.964,15.37 37.339,16.768 39.877,19.306 L45.303,24.732 C46.541,22.385 47.25,19.714 47.25,16.875 C47.25,7.556 39.695,-1.42108547e-14 30.375,-1.42108547e-14 C21.055,-1.42108547e-14 13.5,7.556 13.5,16.875 C13.5,19.714 14.209,22.385 15.447,24.732 L20.873,19.306 Z" id="Fill-3" fill="#FEC514"></path>
+            <path d="M30.375,33.7503 C25.715,33.7503 21.496,31.8613 18.442,28.8083 L0,47.2503 L0,54.0003 L47.25,54.0003 L47.25,33.7503 L42.308,28.8083 C39.254,31.8613 35.035,33.7503 30.375,33.7503" id="Fill-6" fill="#F04E98"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / amp / color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-/-product-logo-/-64x64px-/-amp-/-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo-apm-64x64-color" transform="translate(5.000000, 5.000000)">
+            <polygon id="Fill-1" fill="#F04E98" points="0 17 54 17 54 0 0 0"></polygon>
+            <polygon id="Fill-4" fill="#0077CC" points="32 54 54 54 54 39 32 39"></polygon>
+            <path d="M17,17 L54,17 L54,17 C54,26.3888407 46.3888407,34 37,34 L17,34 L17,17 Z" id="Rectangle" fill="#343741"></path>
+        </g>
+    </g>
+</svg>

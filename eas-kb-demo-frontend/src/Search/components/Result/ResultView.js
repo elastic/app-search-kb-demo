@@ -2,10 +2,17 @@ import React from 'react';
 
 import './Result.scss';
 
-const dateLocale = 'en_US';
-const dateFormatOptions = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+const dateLocale = 'en-US';
+const dateFormatOptions = { year: "numeric", month: "long", day: "numeric" };
 
-const getFormattedDate = (date) => new Date(date).toLocaleString(dateLocale, dateFormatOptions)
+const productIconClassName = ({ result }) => {
+  const { product_name: productName } = result;
+  return `product-icon ${productName ? `product-icon__${productName.raw.replace(/\s+/g, '-').toLowerCase()}` : ''}`
+}
+
+const getFormattedDate = (date) => {
+  return new Date(date).toLocaleString(dateLocale, dateFormatOptions)
+}
 
 const ResultLink = ({ result, ...props }) => {
   const { title: { raw: title }, url: { raw: url } } = result
@@ -22,6 +29,7 @@ const getResultTitle = ({ result, className, onClickLink }) => {
   } = result
 
   return <div className={`${className}__title`}>
+    <div className={productIconClassName({ result })}></div>
     <div className={`${className}__title__text`}>
       {title && <ResultLink result={result} onClick={onClickLink} dangerouslySetInnerHTML={{ __html: title }}/>}
       {title === undefined && <ResultLink result={result} onClick={onClickLink}>{rawTitle}</ResultLink>}
@@ -46,7 +54,7 @@ const getResultContent = ({ result, className, onClickLink }) => {
       {body.raw}
     </p>}
     {resultType === 'discuss' && <div className={`${className}__content`}>
-      Posted {author && author.raw && <>by <b>{author.raw}</b></>} on <b>{getFormattedDate(result.date)}</b>
+      Posted {author && author.raw && <>by <b>{author.raw}</b></>} on <b>{getFormattedDate(result.date.raw)}</b>
     </div>}
   </div>
 }
