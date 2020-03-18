@@ -94,6 +94,11 @@ const processDoc = (doc) => {
     }
   }
 
+  doc.title = doc.title.replace(/\[.*\]/g, '')
+    .replace(/\| .* Reference/g, '')
+    .replace(/\| Getting Started/g, '')
+    .replace(/\| Elastic Stack Overview/g, '');
+
   if (doc.published_at) {
     doc.date = doc.published_at;
     delete doc.published_at;
