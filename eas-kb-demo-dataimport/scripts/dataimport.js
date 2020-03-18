@@ -17,6 +17,31 @@ const PROGRESS_BAR_CONFIG = {
   format: PROGRESS_BAR_FORMAT,
 };
 
+const productNameMapping = {
+  'Metricbeat': 'Beats',
+  'Filebeat': 'Beats',
+  'Clients': 'Elasticsearch',
+  'Packetbeat': 'Beats',
+  'Hadoop and Elasticsearch': 'Elasticsearch',
+  'Libbeat': 'Beats',
+  'Auditbeat': 'Beats',
+  'Heartbeat': 'Beats',
+  'Winlogbeat': 'Beats',
+  'Journalbeat': 'Beats',
+  'Functionbeat': 'Beats',
+  'Logs': 'Logging',
+  'Elastic Cloud Enterprise': 'Cloud ECE',
+  'Elastic Cloud on Kubernetes (ECK)': 'ECK', 
+  'Siem': 'SIEM',
+  'Azure Marketplace And Resource Manager (ARM) Template': 'Cloud',
+  'Enterprise Search': 'Workplace Search',
+  'Rally': 'Elasticsearch',
+  'Beats Developers': 'Beats',
+  'Community Beats': 'Beats',
+  'Central Management': 'Beats',
+  'Machine Learning': 'Elasticsearch'
+};
+
 const getClient = () => {
   return prompts(
     [
@@ -59,6 +84,16 @@ const processDoc = (doc) => {
     doc.date = moment(doc.date.match(/(.*?(am|pm))/)[0], 'MMMM DD, YYYY, H:mma').format();
   }
 
+  if (doc.product_name) {
+    if (Array.isArray(doc.product_name)) {
+      doc.product_name = doc.product_name[0];
+    }
+
+    if (productNameMapping[doc.product_name]) {
+      doc.product_name = productNameMapping[doc.product_name];
+    }
+  }
+
   if (doc.published_at) {
     doc.date = doc.published_at;
     delete doc.published_at;
@@ -82,6 +117,9 @@ const importFile = (client, filename, engine, progressBar) => {
             fileProgressBar.increment(docs.length);
             return Promise.resolve(engine);
           });
+        }).catch((err) => {
+          console.log(err);
+          return Promise.resolve(engine);
         });
       }
 
