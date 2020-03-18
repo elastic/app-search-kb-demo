@@ -32,6 +32,7 @@ const searchProviderConfig = {
   },
   searchQuery: {
     facets: { ...queryFacets },
+    disjunctiveFacets: ['product_name', 'website_area'],
     result_fields: { 
       ...queryBaseResultFields,
       body: { raw: { } }
@@ -59,9 +60,7 @@ const SearchContainer = () => {
                     {autocompletedResults.slice(0, 5).map((result) => {
                       const { title: { raw: title }, url: { raw: url }} = result
                       return <div {...getItemProps({key: result.id.raw, item: result})}>
-                        <a href={url} target="_blank" rel="noopener noreferrer" title={title}>
-                          <ResultView result={result} className='search-container__autocomplete__result' />
-                        </a>
+                        <ResultView result={result} className='search-container__autocomplete__result' />
                       </div>
                     })}
                   </div>
@@ -75,8 +74,8 @@ const SearchContainer = () => {
     </div>
     <div className="search-container__search-result-layout">
       <div className="search-container__search-result-layout__sidebar">
-        <PageTypeFacet field="website_area" label="Type" />
-        <ProductFacet icon={true} field="product_name" label="Product" />
+        <PageTypeFacet show={2} field="website_area" label="Type" />
+        <ProductFacet show={30} icon={true} field="product_name" label="Product" />
       </div>
       <div className="search-container__search-result-layout__main">
         <PagingInfo />

@@ -24,12 +24,19 @@
         padding: 0;
     }
 
-    &__option__link {
-      display: flex;
-      align-items: center;
+    &__option {
+      &__link {
+        display: flex;
+        align-items: center;
+  
+        .product-icon {
+          margin: 0px 12px 0 0;
+        }
+      }
 
-      .product-icon {
-        margin: 0px 12px 0 0;
+      &.selected a {
+        font-weight: 600;
+        color: #006BB4;
       }
     }
   }

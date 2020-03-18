@@ -18,7 +18,7 @@ const FacetOptionView = (props) => {
     props.onSelect(value)
   }
 
-  return <li className='facet__option'>
+  return <li className={`facet__option ${selected ? 'selected' : ''}`}>
     <a href="/" onClick={selected ? onRemove : onSelect} className='facet__option__link'>
       {icon && <div className={productIconClassName({value})} />}
       <span className="facet__option__link__text">{label}</span>
