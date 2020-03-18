@@ -15,7 +15,7 @@
     flex: 1 1 auto;
     max-height: 736px;
     min-height: 500px;
-    background: #1B1C20 center url(../images/circles.svg) no-repeat;
+    background: #1B1C20 center url(../images/background-home.svg) no-repeat;
     margin: 0 0 -80px;
 
     #{$searchContainerClass}__search-box-wrapper {
@@ -53,7 +53,7 @@
       height: 317px;
       padding: 22px 0 0;
       width: calc(100%);
-      background: #1B1C20 center url(../images/circles.svg) no-repeat;
+      background: #1B1C20 center url(../images/background-search-result.svg) no-repeat;
     }
   }
 
