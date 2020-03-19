@@ -43,55 +43,95 @@ const searchProviderConfig = {
   }
 }
 
+const searchBarInputProps = { placeholder: 'Search...' }
+
+class HomeView extends React.Component {
+  renderTitle() {
+    return (
+      <div className="search-container-home__title">
+        <h1>Need help?</h1>
+        <p>Skip the support line and search for your issue in our knowledgebase.</p>
+      </div>
+    )
+  }
+
+  autocompleteView({ autocompletedResults, getItemProps }) {
+    return <div className='search-container__autocomplete'>
+      {autocompletedResults.slice(0, 5).map((result) => {
+        return <div {...getItemProps({key: result.id.raw, item: result})}>
+          <ResultView result={result} className='search-container__autocomplete__result' />
+        </div>
+      })}
+    </div>
+  }
+
+  renderSearchBox() {
+    const autocompleteResultProps = { urlField: "url", titleField: "title", linkTarget: '_blank' }
+    return (
+      <div className="search-container__search-box-wrapper">
+        <SearchBox inputProps={searchBarInputProps} autocompleteResults={autocompleteResultProps}  autocompleteView= {this.autocompleteView} /> 
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="search-container search-container-home">
+        {this.renderTitle()}
+        {this.renderSearchBox()}
+      </div>
+    )
+  }
+}
+
+class SearchResultView extends React.Component {
+  renderSearchBox() {
+    return <div className="search-container__search-box-wrapper">
+      <SearchBox inputProps={{ ...searchBarInputProps, disabled: this.props.isLoading }} />
+    </div>
+  }
+
+  renderFacets() {
+    return <>
+      <PageTypeFacet show={2} field="website_area" label="Type" />
+      <ProductFacet show={30} icon={true} field="product_name" label="Product" />
+    </>
+  }
+
+  resultView({ key, ...props }) {
+    return <li key={key}>
+      <ResultView {...props} className='search-container__search-result-layout__list__result' />
+    </li>
+  }
+
+  renderResults() {
+    return <Results className='search-container__search-result-layout__list' resultView={this.resultView}/>
+  }
+
+  render() {
+    return <div className="search-container search-container-results">
+      {this.renderSearchBox()}
+      <div className="search-container__search-result-layout">
+        <div className="search-container__search-result-layout__sidebar">
+          {this.renderFacets()}   
+        </div>
+        <div className="search-container__search-result-layout__main">
+          {this.props.isLoading && <div className="search-container__search-result-layout__main__loading"></div>}
+          <PagingInfo />
+          {this.renderResults()}
+          <Paging />
+        </div>
+      </div>
+    </div>
+  }
+}
+
 const SearchContainer = () => {
-
-  const searchBarPlaceholder = 'Search ...'
-
-  const homeView = <div className="search-container search-container-home">
-    <div className="search-container-home__title">
-      <h1>Need help?</h1>
-      <p>Skip the support line and search for your issue in our knowledgebase.</p>
-    </div>
-    <div className="search-container__search-box-wrapper">
-      <SearchBox inputProps={{ placeholder: searchBarPlaceholder }}
-                 autocompleteResults={true}
-                 autocompleteView={({ autocompletedResults, getItemProps }) => (
-                  <div className='search-container__autocomplete'>
-                    {autocompletedResults.slice(0, 5).map((result) => {
-                      const { title: { raw: title }, url: { raw: url }} = result
-                      return <div {...getItemProps({key: result.id.raw, item: result})}>
-                        <ResultView result={result} className='search-container__autocomplete__result' />
-                      </div>
-                    })}
-                  </div>
-                 )} />
-    </div>
-  </div>
-
-  const searchResultsView = <div className="search-container search-container-results">
-    <div className="search-container__search-box-wrapper">
-      <SearchBox inputProps={{ placeholder: searchBarPlaceholder }}/>
-    </div>
-    <div className="search-container__search-result-layout">
-      <div className="search-container__search-result-layout__sidebar">
-        <PageTypeFacet show={2} field="website_area" label="Type" />
-        <ProductFacet show={30} icon={true} field="product_name" label="Product" />
-      </div>
-      <div className="search-container__search-result-layout__main">
-        <PagingInfo />
-        <Results className='search-container__search-result-layout__list' resultView={({ key, ...props }) => (
-          <li key={key}>
-            <ResultView {...props} className='search-container__search-result-layout__list__result' />
-          </li>
-        )}/>
-        <Paging />
-      </div>
-    </div>
-  </div>
-
   return <SearchProvider config={searchProviderConfig}>
     <WithSearch mapContextToProps={(context) => context}>
-      {({ wasSearched }) => wasSearched ? searchResultsView : homeView}
+      {({ resultSearchTerm, isLoading, wasSearched, ...props }) => {
+          return resultSearchTerm.length || isLoading || wasSearched ? <SearchResultView {...props} isLoading={isLoading} /> : <HomeView />
+      }}
     </WithSearch>
   </SearchProvider>
 }

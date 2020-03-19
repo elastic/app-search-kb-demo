@@ -34,8 +34,10 @@ const getResultTitle = ({ result, className, onClickLink }) => {
       {title && <ResultLink result={result} onClick={onClickLink} dangerouslySetInnerHTML={{ __html: title }}/>}
       {title === undefined && <ResultLink result={result} onClick={onClickLink}>{rawTitle}</ResultLink>}
     </div>
-    <div className={`${className}__title__badge`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
-    {productVersion !== undefined  && <div className={`${className}__title__badge`}>{productVersion.raw}</div>}
+    <div className={`${className}__title__badges`}>
+      <div className={`${className}__title__badge`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
+      {productVersion !== undefined  && <div className={`${className}__title__badge`}>{productVersion.raw}</div>}
+    </div>
   </div>
 }
 

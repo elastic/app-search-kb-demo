@@ -38,3 +38,11 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .layout {
+    &__footer {
+      margin: 0 auto 30px;
+    }
+  }
+}

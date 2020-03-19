@@ -15,6 +15,12 @@
       width: 21px;
       height: 21px;
       margin-right: 8px;
+      flex: none;
+    }
+
+    &__badges {
+      flex: 1;
+      display: flex;
     }
 
     &__badge {
@@ -36,7 +42,6 @@
       overflow: hidden;
       display: inline-block;
       margin: 0 10px 0 0;
-      flex: 1;
 
       em {
         background: rgba(#F5A700, 0.2);
@@ -53,9 +58,16 @@
     line-height: 16px;
     color: #69707D;
     
-    &__url a {
-      color: #017D73;
-      font-weight: 500;
+    &__url {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      a {
+        color: #017D73;
+        font-weight: 500;
+      }
     }
 
     &__text {
@@ -77,8 +89,7 @@
     border-radius: 7px;
     padding: 10px;
 
-    & #{$resultClass}__title
-    {  
+    & #{$resultClass}__title {  
       &__text {
         font-size: 16px;
       }
@@ -92,14 +103,13 @@
 
 .search-container {
   
-  & &__search-result-layout__list__result {
+  &__search-result-layout__list__result {
     @include search-result;
     margin: 0;
     padding: 16px 0px;
 
     &__title__text {
       font-size: 21px;
-      
       a:hover {
         color: #006DE4;
       }
@@ -111,16 +121,21 @@
     }
   }
 
-  &__autocomplete__result {
-    @include search-result;
-    padding: 16px 32px;
-    color: black;
-    text-decoration: none;
-    display: block;
+  &__autocomplete {
+    [aria-selected=true] {
+      background: rgba(#006DE4, 0.15);
+    }
 
-    &:not(last-child) {
-      border-bottom: 1px solid #D3DAE6;
+    &__result {
+      @include search-result;
+      padding: 16px 32px;
+      color: black;
+      text-decoration: none;
+      display: block;
+
+      &:not(last-child) {
+        border-bottom: 1px solid #D3DAE6;
+      }
     }
   }
-  
 }
