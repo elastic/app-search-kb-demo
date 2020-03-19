@@ -87,7 +87,7 @@ class HomeView extends React.Component {
 class SearchResultView extends React.Component {
   renderSearchBox() {
     return <div className="search-container__search-box-wrapper">
-      <SearchBox inputProps={{ ...searchBarInputProps, disabled: this.props.isLoading }} />
+      <SearchBox inputProps={searchBarInputProps} />
     </div>
   }
 
@@ -109,6 +109,10 @@ class SearchResultView extends React.Component {
   }
 
   render() {
+    if (this.props.isLoading) {
+      window.scrollTo(0, 0)
+    }
+    
     return <div className="search-container search-container-results">
       {this.renderSearchBox()}
       <div className="search-container__search-result-layout">
@@ -117,9 +121,11 @@ class SearchResultView extends React.Component {
         </div>
         <div className="search-container__search-result-layout__main">
           {this.props.isLoading && <div className="search-container__search-result-layout__main__loading"></div>}
-          <PagingInfo />
-          {this.renderResults()}
-          <Paging />
+          {!this.props.isLoading && <>
+            <PagingInfo />
+            {this.renderResults()}
+            <Paging />
+          </>}
         </div>
       </div>
     </div>
