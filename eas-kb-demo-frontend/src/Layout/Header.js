@@ -4,10 +4,15 @@ import logo from './assets/images/elastic-logo.svg';
 
 import './assets/stylesheets/Layout.scss';
 
-const Header = () => {
+const Header = (props) => {
   return <header className="layout__header">
     <div className="layout__header__content">
-     <a href='/'><img src={logo} className="layout__header__logo" alt="Elastic logo" /></a> 
+      <div className="layout__header__logo">
+        <a href='/'><img src={logo} alt="Elastic logo" /></a> 
+      </div>
+      <div className="layout__header__actions">
+        {props.children}
+      </div>
     </div>
   </header>
 }
