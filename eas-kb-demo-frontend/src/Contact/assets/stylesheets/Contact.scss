@@ -76,6 +76,8 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
       h2 {
         text-align: center;
         width: 100%;
+        font-size: 32px;
+        line-height: 40px;
       }
 
       &__close {
@@ -91,7 +93,99 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
     }
 
     &__content {
-      flex: 2;
+      flex: 1;
+      padding: 40px 60px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+
+      .form-row {
+        flex: 1;
+
+        .help-text {
+          font-size: 10.5px;
+          line-height: 18px;
+          color: #69707D;
+          margin: 4px;
+        }
+        
+        label {
+          display: block;
+          width: 100%;
+          margin: 0 0 4px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 18px;
+
+          &:active, &:focus, &:focus-within {
+            color: #006BB4;
+          }
+        }
+        
+        textarea {
+          height: 96px;
+        }
+
+        input, textarea {
+          display: block;
+          background: #F2F4F8;
+          border-radius: 5px;
+          outline: none;
+          border: none;
+          width: calc(100% - 24px);
+          color: #343741;
+          padding: 11px 12px;
+          font-size: 12px;
+          line-height: 18px;
+
+          &[type=email] {
+            background: #F2F4F8 12px 14px url(../images/mail-icon-small.png) no-repeat;
+            padding: 11px 12px 11px 38px;
+            width: calc(100% - 52px);
+            &:active, &:focus {
+              background-position: 10px 12px;
+              padding: 9px 12px 9px 36px;
+            }
+          }
+
+          &:active, &:focus {
+            background-color: #FFFFFF;
+            border: 2px solid #D9E9FB;
+            padding: 9px 10px;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .form-controls {
+        padding: 40px 0;
+        
+
+        
+        .button__primary {
+          padding: 8px 12px;
+          background: #006BB4;
+          border-radius: 7px;
+          color: #FFF;
+          outline: none;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 23px;
+          cursor: pointer;
+        }
+
+        .button__secondary {
+          color: #006BB4;
+          outline: none;
+          border:none;
+          font-size: 14px;
+          line-height: 24px;
+          text-decoration: underline;
+          background: none;
+          cursor: pointer;
+          padding: 0;
+        }
+      }
     }
   }
 }
@@ -112,6 +206,15 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
 }
 
 @media screen and (max-width: 600px) {
+  .contact__modal{
+    &__title h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    &__content {
+      padding: 20px 20px;
+    }
+  }
   .contact__callout {
     text-align: center;
     
