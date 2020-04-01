@@ -101,6 +101,7 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
 
       .form-row {
         flex: 1;
+        margin: 10px 0 0;
 
         .help-text {
           font-size: 10.5px;
@@ -119,6 +120,56 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
 
           &:active, &:focus, &:focus-within {
             color: #006BB4;
+          }
+        }
+
+        .suggestions {
+          position: absolute;
+          margin: -40px -30px;
+          left: calc(100%);
+          background: #FFF;
+          list-style: none;
+          padding: 0 0 20px;
+          border-radius: 4px;
+          box-shadow: $boxShadow;
+          border: 1px solid #D3DAE6;
+          width: 272px;
+
+          &:before {
+            content: " ";
+            border-left: 1px solid #D3DAE6;
+            border-bottom: 1px solid #D3DAE6;
+            width: 20px;
+            height: 20px;
+            display: block;
+            transform: rotate(45deg);
+            margin: 13px -12px;
+            position: absolute;
+            background: white;
+          }
+
+          dt {
+            padding: 12px 16px;
+            font-size: 14px;
+            line-height: 24px;
+            border-bottom: 1px solid #D3DAE6;
+            text-transform: uppercase;
+            color: #000000;
+            font-weight: bold;
+          }
+
+          dd {
+            margin: 8px 16px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 14px;
+            line-height: 24px;
+
+            a {
+              color: #006BB4;
+              text-decoration: none;
+            }
           }
         }
         
@@ -160,8 +211,6 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
       .form-controls {
         padding: 40px 0;
         
-
-        
         .button__primary {
           padding: 8px 12px;
           background: #006BB4;
@@ -200,9 +249,28 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
   
 
 @media screen and (max-width: 768px) {
-  .contact__callout {
-    width: 100%;
+  .contact {
+    &__callout {
+      width: 100%;
+    }
+
+    &__modal {
+      &__content {
+        .form-row {
+          .suggestions {
+            margin: 10px 90px;
+            left: 0;
+            &:before {
+              transform: rotate(135deg);
+              margin: -11px 21px;
+            }
+          }
+        }
+      }
+    }
   }
+
+
 }
 
 @media screen and (max-width: 600px) {
@@ -213,6 +281,11 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
     }
     &__content {
       padding: 20px 20px;
+      .form-row {
+        .suggestions {
+          margin: 10px 40px;
+        }
+      }
     }
   }
   .contact__callout {
@@ -225,13 +298,13 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
 
     &__content {
       font-size: 13px;
+      margin: 10px 30px 30px;
       a {
         width: 100%;
         margin-top: 10px;
         white-space: nowrap;
         display: inline-block;
       }
-      margin: 10px 30px 30px;
     }
 
     background: #FFF;

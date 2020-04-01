@@ -136,7 +136,7 @@ const SearchContainer = () => {
   return <SearchProvider config={searchProviderConfig}>
     <WithSearch mapContextToProps={(context) => context}>
       {({ resultSearchTerm, isLoading, wasSearched, ...props }) => {
-          return resultSearchTerm.length || isLoading || wasSearched ? <SearchResultView {...props} isLoading={isLoading} /> : <HomeView />
+        return resultSearchTerm.length || isLoading || wasSearched ? <SearchResultView {...props} isLoading={isLoading} /> : <HomeView />
       }}
     </WithSearch>
   </SearchProvider>
