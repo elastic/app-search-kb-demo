@@ -44,7 +44,6 @@ const ContactModal = ({ visible, onClose }) => {
                 const onSuggestionClick = (suggestion) => ((ev) => {
                   ev.preventDefault();
                   if (suggestion != undefined) {
-                    console.log('ICI')
                     objectFieldRef.current.value = suggestion
                   }
                   setSearchTerm('', {refresh: false, autocompleteSuggestions: true})
