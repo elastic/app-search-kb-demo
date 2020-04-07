@@ -7,7 +7,7 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
     margin: 0px auto ;
     height: 185px;
     color: #343741;
-    background: #FFFFFF 57px 52px url(../images/help-icon-large.png) no-repeat;
+    background: #FFFFFF 57px 52px url(../images/help-icon-large.svg) no-repeat;
     box-shadow: $boxShadow;
   
     &__title {
@@ -242,7 +242,7 @@ $boxShadow: 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.00843437), 0px 6.6501px 5.32
 .layout__header {
   .contact__link {
     padding: 0 0 0 24px;
-    background: #FFFFFF 0 4px url(../images/help-icon-small.png) no-repeat;
+    background: #FFFFFF 0 4px url(../images/help-icon-small.svg) no-repeat;
     display: block;
   }
 }

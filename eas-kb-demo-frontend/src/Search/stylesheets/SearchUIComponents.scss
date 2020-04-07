@@ -28,11 +28,12 @@
     float: right;
     position: relative;
     margin: -51px 20px;
-    background: transparent url(../images/search-icon.png);
+    background: transparent url(../images/search-icon.svg);
     border: none;
     color: transparent;
     width: 32px;
     height: 32px;
+    cursor: pointer;
 
     &:focus {
       outline:none;
