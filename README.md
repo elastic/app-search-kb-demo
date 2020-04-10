@@ -41,6 +41,13 @@ To start the frontend, you can use:
 yarn start
 ```
 
+To run cypress tests for the frontend, you can use:
+
+```bash
+yarn cypress run
+```
+
+
 ### Data import development
 
 #### Starting the stack
