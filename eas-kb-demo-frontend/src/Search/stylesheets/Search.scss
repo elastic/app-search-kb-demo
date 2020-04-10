@@ -76,6 +76,7 @@
 
     &__main {
       margin: 25px 35px 25px;
+      max-width: calc(100% - 300px);
       flex: 1;
 
       &__loading {
@@ -129,6 +130,7 @@
       &__main {
         margin: 25px 25px;
         width: calc(100% - 50px);
+        max-width: none;
       }
     }
 

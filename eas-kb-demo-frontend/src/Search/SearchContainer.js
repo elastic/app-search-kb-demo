@@ -43,7 +43,7 @@ const searchProviderConfig = {
   }
 }
 
-const searchBarInputProps = { placeholder: 'Search...' }
+const searchBarInputProps = { placeholder: 'Search...', 'data-testid': 'search-bar' }
 
 class HomeView extends React.Component {
   renderTitle() {
