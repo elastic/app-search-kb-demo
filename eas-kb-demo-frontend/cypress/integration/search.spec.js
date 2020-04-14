@@ -23,7 +23,6 @@ describe('Search result page', () => {
     })
   })
 
-
   describe('Search result page for "' + searchQuery + '"', () => {
     before(() => {
       cy.visit('/?q=' + searchQuery)
@@ -46,7 +45,11 @@ describe('Search result page', () => {
     })
 
     describe('Results', () => {
-
+      it('should display 10 results', () => {
+        cy.get('.search-container__search-result-layout__list').within(() => {
+          cy.get('li > div.search-container__search-result-layout__list__result').should('have.length', 10)
+        })
+      })
     })
 
     describe('Sidebar', () => {
@@ -60,22 +63,47 @@ describe('Search result page', () => {
       })
 
       describe('Default viewport', () => {
-        it('should be visible by default', () => {
-          cy.get('.search-container__search-result-layout__sidebar').should('be.visible')
-        })
 
-        describe('Page type facet', () => {
-          
-        })
+        describe('Sidebar', () => {
+          it('should be visible by default', () => {
+            cy.get('.search-container__search-result-layout__sidebar').should('be.visible')
+          })
 
-        describe('Product facet', () => {
-          
+          describe('Facets', () => {
+            beforeEach(() => {
+              cy.visit('/?q=' + searchQuery)
+            })
+
+            describe('Page type facet', () => {    
+              it('should have a page type facet', () => {
+                cy.get('.search-container__search-result-layout__sidebar').within(() => {
+                  cy.get('.facet').first().within(() => {
+                    cy.get('.facet__title').contains('Type')
+                    cy.get('.facet__option:first-of-type').should('have.class', 'selected').contains('All')
+                    cy.get('.facet__option').not(':first-of-type').each((filterNode) => {
+                      cy.wrap(filterNode).find('.facet__option__link').click();
+                    })
+                  })
+                })
+              })
+            })
+
+            describe('Product facet', () => {
+              it('should have a product facet', () => {
+                cy.get('.search-container__search-result-layout__sidebar').within(() => {
+                  cy.get('.facet').eq(1).within(() => {
+                    cy.get('.facet__title').contains('Product')
+                    cy.get('.facet__option:first-of-type').should('have.class', 'selected').contains('All')
+                    cy.get('.facet__option').not(':first-of-type').each((filterNode) => {
+                      cy.wrap(filterNode).find('.facet__option__link').click();
+                    })
+                  })
+                })
+              })
+            })
+          })
         })
       })
-    })
-
-    describe('Pagination', () => {
-
     })
   })
 })
