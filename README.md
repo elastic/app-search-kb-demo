@@ -1,22 +1,53 @@
 # Elastic App Search Knowledge Base Demo
 
 
-## Build and run for testing
+## Build and run frontend for testing
 
-To build and run the frontend docker image, you can run the following command from the root directory:
+## Frontend only
+
+If you wish to test the frontend only, you can build and run the frontend docker image, you can run the following command from the project root directory:
 
 ```bash
-docker build . -t eas-kb-demo/frontend
-docker run -p5000:5000 --rm eas-kb-demo/frontend
+docker build . --target=frontend -t eas-kb-demo/frontend
+docker run -p5000:5000 --rm --env-file=eas-kb-demo-frontend/.env eas-kb-demo/frontend
 ```
 
-You can now use the frontend from your browser at http://localhost:5000.
+You can now use the frontend from your browser at http://host.docker.internal:5000.
 
 **Note:**
 - The docker build is a snapshot version of the production build to be deployed.
-- Data from an ESS App Search instance. If you need data to be updated or some tuning, fill an issue.
+- Data from an ESS App Search instance
 - If you want to develop the frontend, read the development documentation bellow.
 
+
+## Full stack
+
+If you wish to test the full stack build locally, you have to boot all the required services (Elasticsearch, App Search) using the `docker-compose.yml` config with the project.
+
+```
+docker-compose up -d
+```
+
+It could take few minutes, for the stack to be fully booted. Once finished, you should be able to access:
+- App Search admin at http://host.docker.internal:3002 using `app_search`/ `password` credentials
+- The frontend at http://host.docker.internal:5000
+
+Note:
+- All data are automatically imported when starting the stack. It can take few minutes before the result start to appear in the frontend.
+- You can tune the engine relevance, curations, and synonyms by using the `helpdesk` meta engine in App Search.
+- The docker-compose stack is not intended to develop but to test built images. Images need to be refreshed everytime a change is made to the code using `docker-compose build`.
+
+If something goes wrong with the import (use `docker-compose logs dataimport --f` to view logs), you can restart it with:
+
+```
+docker-compose run dataimport start-dataimport.sh
+```
+
+To reset the whole stack (all data will be lost), use:
+
+```
+docker-compose down
+```
 
 ## Development
 
@@ -46,7 +77,6 @@ To run cypress tests for the frontend, you can use:
 ```bash
 yarn cypress run
 ```
-
 
 ### Data import development
 
