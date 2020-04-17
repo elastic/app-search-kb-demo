@@ -37,7 +37,7 @@ Note:
 - You can tune the engine relevance, curations, and synonyms by using the `helpdesk` meta engine in App Search.
 - The docker-compose stack is not intended to develop but to test built images. Images need to be refreshed everytime a change is made to the code using `docker-compose build`.
 
-If something goes wrong with the import (use `docker-compose logs dataimport --f` to view logs), you can restart it with:
+If something goes wrong with the import (use `docker-compose logs -f dataimport` to view logs), you can restart it with:
 
 ```
 docker-compose run dataimport start-dataimport.sh
