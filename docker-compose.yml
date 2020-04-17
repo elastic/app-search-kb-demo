@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
   elasticsearch:
@@ -16,8 +16,6 @@ services:
       memlock:
         soft: -1
         hard: -1
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
   app-search:
     image: docker.elastic.co/app-search/app-search:7.6.1
     environment:
@@ -26,10 +24,26 @@ services:
     - "app_search.listen_host=0.0.0.0"
     - "APP_SEARCH_DEFAULT_PASSWORD=password"
     - "allow_es_settings_modification=true"
-    - "VIRTUAL_PORT=3002"
     - "secret_session_key=833015eb940d5299db0957aea5bbe451921fdb31e05d61600d0cdb65caf2c632a1fbc8623c7d333e59596dd7316758e6629a2290c06c621e33e025d6f474a622"
-    - "VIRTUAL_HOST=localhost"
     ports:
     - 3002:3002
+  frontend:
+    build: 
+      context: '.'
+      target: frontend
+    environment: 
+    - "AS_BASE_URL=http://host.docker.internal:3002/"
+    - "AS_USERNAME=app_search"
+    - "AS_PASSWORD=password"
+    ports:
+    - 5000:5000
+  dataimport:
+    build: 
+      context: '.'
+      target: dataimport
+    environment: 
+    - "AS_BASE_URL=http://host.docker.internal:3002/"
+    - "AS_USERNAME=app_search"
+    - "AS_PASSWORD=password"
 volumes:
   esdata:
