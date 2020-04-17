@@ -43,23 +43,31 @@ const productNameMapping = {
 };
 
 const getClient = () => {
-  return prompts(
-    [
-      {
-        type: 'text',
-        name: 'appSearchUrl',
-        message: 'App Search Server URL:',
-        initial: process.env.APP_SEARCH_URL || DEFAULT_URL,
-      },
-      {
-        type: 'text',
-        name: 'apiKey',
-        message: 'App Search Private API key:',
-        initial: process.env.APP_SEARCH_PRIVATE_KEY,
-      },
-    ]
-  ).then(({apiKey, appSearchUrl}) => {
-    return Promise.resolve(new AppSearchClient(undefined, apiKey, () => appSearchUrl));
+  const readConfig = new Promise((resolve, _) => {
+    if (process.env.AS_BASE_URL && process.env.AS_PRIVATE_API_KEY) {
+      resolve({appSearchUrl: process.env.AS_BASE_URL, apiKey: process.env.AS_PRIVATE_API_KEY });
+    } else {
+      prompts(
+        [
+          {
+            type: 'text',
+            name: 'appSearchUrl',
+            message: 'App Search Server URL:',
+            initial: process.env.AS_BASE_URL || DEFAULT_URL,
+          },
+          {
+            type: 'text',
+            name: 'apiKey',
+            message: 'App Search Private API key:',
+            initial: process.env.AS_PRIVATE_API_KEY
+          },
+        ]
+      ).then((config) => resolve(config));
+    }
+  });
+
+  return readConfig.then(({apiKey, appSearchUrl}) => {
+    return Promise.resolve(new AppSearchClient(undefined, apiKey, () => `${appSearchUrl}/api/as/v1/`));
   });
 };
 
@@ -113,13 +121,17 @@ const importFile = (client, filename, engine, progressBar) => {
     .then(() => {
       const jsonData = require(filename);
       const fileProgressBar = progressBar.create(jsonData.length, 0);
-      fileProgressBar.update(0, {filename: filename.padEnd(100)});
+      if (fileProgressBar) {
+        fileProgressBar.update(0, {filename: filename.padEnd(100)});
+      }
       var promise = Promise.resolve(engine);
       for (var i = 0; i < jsonData.length; i += BATCH_SIZE) {
         const docs = jsonData.slice(i, i + BATCH_SIZE).map(processDoc);
         promise = promise.then(() => {
           return client.indexDocuments(engine, docs).then(() => {
-            fileProgressBar.increment(docs.length);
+            if (fileProgressBar) {
+              fileProgressBar.increment(docs.length);
+            }
             return Promise.resolve(engine);
           });
         }).catch((err) => {
