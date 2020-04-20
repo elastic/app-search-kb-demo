@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "license": "Apache-2.0",
   "scripts": {
-    "dataimport": "node scripts/dataimport.js",
+    "dataimport": "node src/cli.js",
     "lint": "eslint ."
   },
   "dependencies": {
     "@elastic/app-search-node": "^7.6.0",
     "cli-progress": "^3.6.0",
+    "jsonfile": "^6.0.1",
     "moment": "^2.24.0",
     "prompts": "^2.3.1"
   },
