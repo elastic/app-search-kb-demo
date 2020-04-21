@@ -1,5 +1,6 @@
 # Elastic App Search Knowledge Base Demo
 
+![eas-kb-demo](https://user-images.githubusercontent.com/786943/79903734-347d7300-83d9-11ea-8405-6b801fcd74ac.gif)
 
 ## Build and run frontend for testing
 
