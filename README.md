@@ -84,7 +84,7 @@ yarn cypress run
 #### Starting the stack
 
 When working on the import, you should use your own version of App Search during the development.
-The easiest way to get the stack up and runing is to use the `docker-compose` file bundled with this demo:
+The easiest way to get the stack up and running is to use the `docker-compose` file bundled with this demo:
 
 ```bash
 docker-compose up -d
@@ -97,7 +97,7 @@ After the stack will have finished to start, you can then access to App Search t
 
 **Notes :**
 
-- This demo uses meta engine which are available only when using a Platinium license. <br/>
+- This demo uses meta engine which are available only when using a Platinum license. <br/>
 You have to start a new trial for your App Search instance using the following command:
 
 ```bash
