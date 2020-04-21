@@ -125,3 +125,7 @@ yarn dataimport
 - You will need to information during the setup:
     - App Search API base URL: default is set to `http://localhost:3002/api/as/v1/` (should be fine)
     - App Search API private key: you can find it into the credentials section of the App Search dashboard (http://localhost:3002/as#/credentials)
+
+## License
+
+[Apache-2.0](https://github.com/elastic/app-search-kb-demo/blob/master/LICENSE.txt) © [Elastic](https://github.com/elastic)
