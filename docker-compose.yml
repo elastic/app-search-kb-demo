@@ -8,7 +8,6 @@ services:
     - "discovery.type=single-node"
     - "cluster.name=app-search-docker-cluster"
     - "bootstrap.memory_lock=true"
-    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     - "ELASTIC_PASSWORD=elasticpassword"
     - "xpack.security.enabled=true"
     - "xpack.license.self_generated.type=trial"
