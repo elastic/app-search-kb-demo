@@ -6,7 +6,7 @@ const DEFAULT_URL              = `http://localhost:3002/`;
 const DEFAULT_META_ENGINE_NAME = 'helpdesk';
 const DEFAULT_LANGUAGE         = 'en';
 
-const BATCH_SIZE = 50;
+const BATCH_SIZE = 100;
 
 const DATA_DIR_NAME = require('path').resolve(`${__dirname}/../..`) + '/data';
 const API_BASE_PATH = '/api/as/v1/';
