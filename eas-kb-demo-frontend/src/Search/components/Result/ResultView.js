@@ -22,7 +22,7 @@ const ResultLink = ({ result, ...props }) => {
 }
 
 const getResultTitle = ({ result, className, onClickLink }) => {
-  const { 
+  const {
     title: { snippet: title, raw: rawTitle },
     website_area: { raw: resultType },
     product_version: productVersion
@@ -42,7 +42,7 @@ const getResultTitle = ({ result, className, onClickLink }) => {
 }
 
 const getResultContent = ({ result, className, onClickLink }) => {
-  const { 
+  const {
     url: { raw: url },
     website_area: { raw: resultType },
     body,

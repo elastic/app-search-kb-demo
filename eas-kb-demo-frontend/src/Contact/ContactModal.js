@@ -6,7 +6,7 @@ import { WithSearch, SearchProvider } from "@elastic/react-search-ui";
 
 import searchConnector from '../Search/SearchConnector';
 
-const searchProviderConfig = { 
+const searchProviderConfig = {
   apiConnector: searchConnector,
   autocompleteQuery: {
     suggestions: {
@@ -17,6 +17,7 @@ const searchProviderConfig = {
 };
 
 const ContactModal = ({ visible, onClose }) => {
+  const objectFieldRef = React.createRef();
 
   return <div className='contact__modal' aria-hidden={!visible}>
     <div className='contact__modal__overlay' onClick={onClose}></div>
@@ -34,29 +35,25 @@ const ContactModal = ({ visible, onClose }) => {
                   setSearchTerm(ev.target.value, {refresh: false, autocompleteSuggestions: true})
                 }
 
-                const onBlur = (ev) => {
-                  ev.preventDefault();
-                  setSearchTerm('', {refresh: false, autocompleteSuggestions: true})
-                }
-                
-                const objectFieldRef = React.createRef()
-                
-                const onSuggestionClick = (suggestion) => ((ev) => {
-                  ev.preventDefault();
-                  if (suggestion != undefined) {
-                    objectFieldRef.current.value = suggestion
+                const hideSuggestions = () => {
+                  setSearchTerm('', {refresh: false, autocompleteSuggestions: true});
+                };
+
+                const renderSuggestion = ({suggestion}, i) => {
+                  const onCLick = (ev) => {
+                    ev.preventDefault();
+                    objectFieldRef.current.value = suggestion;
+                    hideSuggestions();
                   }
-                  setSearchTerm('', {refresh: false, autocompleteSuggestions: true})
-                });
+                  return <dd key={i}><a href='/' onClick={onCLick}>{suggestion}</a></dd>
+                };
 
                 return <label>
-                  <span>Subject</span> 
-                  <input ref={objectFieldRef} onChange={onInputChange} onBlur={onBlur} type="text"/>
+                  <span>Subject</span>
+                  <input ref={objectFieldRef} onChange={onInputChange} onBlur={hideSuggestions} type="text"/>
                   {autocompletedSuggestions.documents && autocompletedSuggestions.documents.length > 1 && <dl className="suggestions">
                     <dt>Recommended for you</dt>
-                    {autocompletedSuggestions.documents.map(({suggestion}, i) => (
-                      <dd key={i}><a href='/' onClick={onSuggestionClick(suggestion)}>{suggestion}</a></dd>
-                    ))}
+                    {autocompletedSuggestions.documents.map(renderSuggestion)}
                   </dl>}
                 </label>
               }}

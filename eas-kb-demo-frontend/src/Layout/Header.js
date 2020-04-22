@@ -8,7 +8,7 @@ const Header = (props) => {
   return <header className="layout__header">
     <div className="layout__header__content">
       <div className="layout__header__logo">
-        <a href='/'><img id="header-logo" src={logo} alt="Elastic logo" /></a> 
+        <a href='/'><img id="header-logo" src={logo} alt="Elastic logo" /></a>
       </div>
       <div className="layout__header__actions">
         {props.children}

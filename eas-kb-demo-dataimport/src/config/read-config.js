@@ -2,13 +2,13 @@
 
 const prompts = require('prompts');
 
-const DEFAULT_URL              = `http://localhost:3002/`;
+const DEFAULT_URL = 'http://localhost:3002/';
 const DEFAULT_META_ENGINE_NAME = 'helpdesk';
-const DEFAULT_LANGUAGE         = 'en';
+const DEFAULT_LANGUAGE = 'en';
 
 const BATCH_SIZE = 100;
 
-const DATA_DIR_NAME = require('path').resolve(`${__dirname}/../..`) + '/data';
+const DATA_DIR_NAME = `${require('path').resolve(`${__dirname}/../..`)}/data`;
 const API_BASE_PATH = '/api/as/v1/';
 
 const PROGRESS_BAR_FORMAT = '  Importing {filename} [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}';
@@ -18,17 +18,16 @@ const PROGRESS_BAR_CONFIG = {
   format: PROGRESS_BAR_FORMAT,
 };
 
-
 /**
  * Read config from environment variables.
- * 
+ *
  * @returns {Promise<Object>} Config.
  */
 const readFromEnvironment = () => {
   const { AS_BASE_URL: appSearchUrl, AS_PRIVATE_API_KEY: apiKey } = process.env;
   const config = { appSearchUrl, apiKey };
-  
-  if (appSearchUrl === undefined || apiKey == undefined ) {
+
+  if (appSearchUrl === undefined || apiKey === undefined) {
     return Promise.reject(config);
   }
 
@@ -37,7 +36,7 @@ const readFromEnvironment = () => {
 
 /**
  * Read config from the prompt.
- * 
+ *
  * @returns {Promise<Object>} Config.
  */
 const promptConfig = () => {
@@ -61,11 +60,11 @@ const promptConfig = () => {
 
 /**
  * Validate the config.
- * 
+ *
  * @param {Onject} config              Config.
  * @param {string} config.appSearchUrl App Search API base URL
  * @param {string} config.appSearchUrl App Search API private key.
- * 
+ *
  * @returns {Promise<Object>} Validated config.
  */
 const validateConfig = ({ appSearchUrl, apiKey, ...config }) => {
@@ -83,11 +82,11 @@ const validateConfig = ({ appSearchUrl, apiKey, ...config }) => {
   }
 
   return Promise.resolve({ appSearchUrl, apiKey, ...config });
-}
+};
 
 /**
  * Read and validate the dataimport config.
- * 
+ *
  * @returns {Promise<Object>} Validated config.
  */
 const readConfig = () => {
@@ -96,7 +95,7 @@ const readConfig = () => {
     inputDir: DATA_DIR_NAME,
     language: DEFAULT_LANGUAGE,
     batchSize: BATCH_SIZE,
-    progressBarConfig : PROGRESS_BAR_CONFIG,
+    progressBarConfig: PROGRESS_BAR_CONFIG,
   };
 
   return readFromEnvironment().catch(promptConfig).then(validateConfig).then(({ ...config }) => {
@@ -104,4 +103,4 @@ const readConfig = () => {
   });
 };
 
-module.exports = readConfig; 
+module.exports = readConfig;

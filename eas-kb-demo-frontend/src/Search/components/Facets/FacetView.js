@@ -13,7 +13,7 @@ const FacetView = (props) => {
   const onSelectWithReset = (value) => {
     onRemove(values[0])
     onSelect(value)
-  } 
+  }
 
   return <div className="facet">
     <div className="facet__title">{label}</div>
@@ -27,7 +27,7 @@ const FacetView = (props) => {
         return optionView({ onSelect: onSelectWithReset, onRemove: onRemove, icon:icon, key: option.value, ...option })
       })}
     </ul>
-  </div> 
+  </div>
 }
 
 export default FacetView;

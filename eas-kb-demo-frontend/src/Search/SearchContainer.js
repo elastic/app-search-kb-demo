@@ -8,14 +8,14 @@ import searchConnector from './SearchConnector';
 
 import './stylesheets/Search.scss';
 
-const queryBaseResultFields = { 
+const queryBaseResultFields = {
   title: { raw: { }, snippet: { size: 200, fallback: true } },
   url: { raw : { } },
   date: { raw : { } },
   website_area: { raw: { } },
   product_version: { raw : { } },
   product_name: { raw : { } },
-  author: { raw : { } },
+  author: { raw : { } }
 }
 
 const queryFacets = {
@@ -33,7 +33,7 @@ const searchProviderConfig = {
   searchQuery: {
     facets: { ...queryFacets },
     disjunctiveFacets: ['product_name', 'website_area'],
-    result_fields: { 
+    result_fields: {
       ...queryBaseResultFields,
       body: { raw: { } }
     }
@@ -69,7 +69,7 @@ class HomeView extends React.Component {
     const autocompleteResultProps = { urlField: "url", titleField: "title", linkTarget: '_blank' }
     return (
       <div className="search-container__search-box-wrapper">
-        <SearchBox inputProps={searchBarInputProps} autocompleteResults={autocompleteResultProps}  autocompleteView= {this.autocompleteView} /> 
+        <SearchBox inputProps={searchBarInputProps} autocompleteResults={autocompleteResultProps}  autocompleteView= {this.autocompleteView} />
       </div>
     )
   }
@@ -112,12 +112,12 @@ class SearchResultView extends React.Component {
     if (this.props.isLoading) {
       window.scrollTo(0, 0)
     }
-    
+
     return <div className="search-container search-container-results">
       {this.renderSearchBox()}
       <div className="search-container__search-result-layout">
         <div className="search-container__search-result-layout__sidebar">
-          {this.renderFacets()}   
+          {this.renderFacets()}
         </div>
         <div className="search-container__search-result-layout__main">
           {this.props.isLoading && <div className="search-container__search-result-layout__main__loading"></div>}

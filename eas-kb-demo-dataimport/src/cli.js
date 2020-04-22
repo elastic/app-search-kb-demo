@@ -6,10 +6,10 @@ const { getImportedFiles } = require('./input/file');
 const documentProcessor = require('./document/processor');
 const cliProgress = require('cli-progress');
 
-(async function() {
+(async() => {
   try {
     const config = await readConfig();
-    console.info(`✔ Config read sucessfully.`)
+    console.info('✔ Config read sucessfully.');
 
     const client = await clientFactory(config);
     console.info('✔ Connected to the App Search server successfully.');
@@ -26,7 +26,7 @@ const cliProgress = require('cli-progress');
             console.info(`✔ Using already existing ${engine} engine.`);
           }
           return Promise.resolve(engineData);
-        }).catch(reason => Promise.reject(`Unable to initialiaze engine ${engine} (${reason})`))
+        }).catch(reason => Promise.reject(`Unable to initialiaze engine ${engine} (${reason})`));
     })).then(() => {
       const sourceEngines = importedFiles.map(_ => _.getEngineName());
       const { metaEngineName } = config;
@@ -38,7 +38,7 @@ const cliProgress = require('cli-progress');
             console.info(`✔ Updated ${metaEngineName} meta-engine sources.`);
           }
           return Promise.resolve(engineData);
-      })
+        });
     }).then(() => {
       const progressBar = new cliProgress.MultiBar(config.progressBarConfig, cliProgress.Presets.shades_grey);
       return Promise.all(importedFiles.map((inputFile) => {
@@ -52,19 +52,22 @@ const cliProgress = require('cli-progress');
               if (fileProgressBar) {
                 fileProgressBar.increment(batchSize);
               }
-            }
+            };
             return client.importDocuments(inputFile.getEngineName(), docs, progressCallback).then(importStats => {
               if (!fileProgressBar) {
-                console.info(`✔ Imported ${importStats.docs} documents from file ${inputFile.filename} into engine ${inputFile.getEngineName()}.`);
+                const { docs: docsCount } = importStats.docs;
+                const filename = inputFile.filename;
+                const engineName = inputFile.getEngineName();
+                console.info(`✔ Imported ${docsCount} documents from file ${filename} into engine ${engineName}.`);
               }
-            })
+            });
           });
       })).then(() => progressBar.stop());
     }).catch(reason => {
       throw reason;
     });
   } catch (reason) {
-    console.error(`✘ Error: ${reason}`)
+    console.error(`✘ Error: ${reason}`);
     process.exit(1);
   }
 })();

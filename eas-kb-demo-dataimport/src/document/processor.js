@@ -1,7 +1,8 @@
-"use strict";
+'use strict';
 
 const moment = require('moment');
 
+/*eslint quote-props: ["error", "always"]*/
 const productNameMapping = {
   'Metricbeat': 'Beats',
   'Filebeat': 'Beats',
@@ -16,7 +17,7 @@ const productNameMapping = {
   'Functionbeat': 'Beats',
   'Logs': 'Logging',
   'Elastic Cloud Enterprise': 'Cloud ECE',
-  'Elastic Cloud on Kubernetes (ECK)': 'ECK', 
+  'Elastic Cloud on Kubernetes (ECK)': 'ECK',
   'Siem': 'SIEM',
   'Azure Marketplace And Resource Manager (ARM) Template': 'Cloud',
   'Enterprise Search': 'Workplace Search',
@@ -24,18 +25,17 @@ const productNameMapping = {
   'Beats Developers': 'Beats',
   'Community Beats': 'Beats',
   'Central Management': 'Beats',
-  'Machine Learning': 'Elasticsearch'
+  'Machine Learning': 'Elasticsearch',
 };
 
 /**
  * Handle document processing (cleaning, value mapping, ...).
- * 
+ *
  * @param {Object} rawDocument Document to be processed.
- * 
+ *
  * @returns {Object}
  */
 const processDocument = ({ title, date, published_at, category, product_name, product_name_raw, ...docFields }) => {
-  
   // pubished_at field is removed in favor of the date field.
   if (published_at) {
     date = published_at;
