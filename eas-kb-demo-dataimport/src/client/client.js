@@ -108,10 +108,6 @@ class Client {
    * @param {*}        progressCallback A callback called each time for each imported chunk.
    */
   async importDocuments(engineName, documents, progressCallback) {
-    function timeout(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     for (var i = 0; i < documents.length; i += this.batchSize) {
       const cuurentBatch = documents.slice(i, i + this.batchSize);
       try {
@@ -119,7 +115,6 @@ class Client {
         if (progressCallback) {
           progressCallback(cuurentBatch.length);
         }
-        await timeout(100);
       } catch ({ errorMessages: [message], ...error }) {
         return Promise.reject(`Error while importing documents in engine ${engineName} (${message})`)
       }
