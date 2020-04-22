@@ -13,6 +13,7 @@
     "cypress": "yarn workspace eas-kb-demo-frontend run cypress"
   },
   "dependencies": {
+    "husky": "^4.2.5",
     "yarn-workspace-isolator": "^0.1.0-rc1"
   }
 }
