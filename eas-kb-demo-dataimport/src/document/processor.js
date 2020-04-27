@@ -45,6 +45,9 @@ const productNameMapping = {
   'Community Beats': 'Beats',
   'Central Management': 'Beats',
   'Machine Learning': 'Elasticsearch',
+  'Elastic Logging Plugin': 'Beats',
+  'Infrastructure': 'Elastic Stack',
+
 };
 
 /**
