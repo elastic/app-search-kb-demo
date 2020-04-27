@@ -67,20 +67,30 @@ const cliProgress = require('cli-progress');
             if (fileProgressBar) {
               fileProgressBar.update(0, {filename: inputFile.filename.padEnd(100)});
             }
-            const progressCallback = (batchSize) => {
+            const progressCallback = (importedDocs) => {
               if (fileProgressBar) {
-                fileProgressBar.increment(batchSize);
+                fileProgressBar.increment(importedDocs);
               }
             };
-            return client.importDocuments(inputFile.getEngineName(), docs, progressCallback).then(importStats => {
-              if (!fileProgressBar) {
-                const filename = inputFile.filename;
-                const engineName = inputFile.getEngineName();
-                console.info(`✔ Imported ${docs.length} documents from file ${filename} into engine ${engineName}.`);
-              }
-            });
+            return client.importDocuments(inputFile.getEngineName(), docs, progressCallback)
+              .then(({ importedDocs }) => {
+                if (!fileProgressBar) {
+                  const filename = inputFile.filename;
+                  const engineName = inputFile.getEngineName();
+                  console.info(`✔ Imported ${importedDocs} documents from file ${filename} into engine ${engineName}.`);
+                }
+                return Promise.resolve(importedDocs);
+              });
           });
-      })).then(() => progressBar.stop());
+      })).then(async(docCounts) => {
+        progressBar.stop();
+        const expectedDocCount = Math.min(10000, docCounts.reduce((acc, value) => acc + value, 0));
+        const { metaEngineName } = config;
+        while (await client.getSearchableDocCount(metaEngineName) < expectedDocCount) {
+          await new Promise(resolve => setTimeout(resolve, 100));
+        };
+        console.info(`✔ Meta engine ${metaEngineName} contains ${expectedDocCount} searchable documents.`);
+      });
     }).catch(reason => {
       throw reason;
     });

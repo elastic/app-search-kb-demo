@@ -127,12 +127,16 @@ class Client {
    * @param {*}        progressCallback A callback called each time for each imported chunk.
    */
   async importDocuments(engineName, documents, progressCallback) {
+    var importedDocs = 0;
     for (var i = 0; i < documents.length; i += this.batchSize) {
-      const cuurentBatch = documents.slice(i, i + this.batchSize);
+      const currentBatch = documents.slice(i, i + this.batchSize);
       try {
-        await this.client.indexDocuments(engineName, cuurentBatch);
+        const indexingResponse = await this.client.indexDocuments(engineName, currentBatch);
+
+        importedDocs += indexingResponse.filter(({errors}) => errors.length === 0).length;
+
         if (progressCallback) {
-          progressCallback(cuurentBatch.length);
+          progressCallback(currentBatch.length);
         }
 
       } catch ({ errorMessages: [message], ...error }) {
@@ -140,7 +144,22 @@ class Client {
       }
     }
 
-    return Promise.resolve({engine: engineName, docs: documents.length});
+    return Promise.resolve({ engine: engineName, importedDocs });
+  }
+
+  /**
+   * Return searchable doc count for the specified engine.
+   *
+   * @param {string} engineName Target engine name.
+   */
+  async getSearchableDocCount(engineName) {
+    try {
+      const searchResponse = await this.client.search(engineName, '', { page: { size: 1 } }).then();
+      const { meta: { page: { total_results: docCount } } } = searchResponse;
+      return Promise.resolve(docCount);
+    } catch ({ errorMessages: [message], ...error }) {
+      return Promise.reject(`Unable to retrieve searchable doc count for ${engineName} (${message})`);
+    }
   }
 }
 
