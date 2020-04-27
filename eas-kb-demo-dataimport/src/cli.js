@@ -74,10 +74,9 @@ const cliProgress = require('cli-progress');
             };
             return client.importDocuments(inputFile.getEngineName(), docs, progressCallback).then(importStats => {
               if (!fileProgressBar) {
-                const { docs: docsCount } = importStats.docs;
                 const filename = inputFile.filename;
                 const engineName = inputFile.getEngineName();
-                console.info(`✔ Imported ${docsCount} documents from file ${filename} into engine ${engineName}.`);
+                console.info(`✔ Imported ${docs.length} documents from file ${filename} into engine ${engineName}.`);
               }
             });
           });
