@@ -1,0 +1,20 @@
+version: "3.4"
+services:
+  frontend:
+    build: 
+      context: '.'
+      target: frontend
+    environment: 
+    - "AS_BASE_URL=${AS_BASE_URL}"
+    - "AS_USERNAME=elastic"
+    - "AS_PASSWORD=${CLOUD_PASSWORD}"
+    ports:
+    - 5000:5000
+  dataimport:
+    build: 
+      context: '.'
+      target: dataimport
+    environment: 
+    - "AS_BASE_URL=${AS_BASE_URL}"
+    - "AS_USERNAME=elastic"
+    - "AS_PASSWORD=${CLOUD_PASSWORD}"
