@@ -30,16 +30,16 @@ import './stylesheets/Search.scss';
 const queryBaseResultFields = {
   title: { raw: { }, snippet: { size: 200, fallback: true } },
   url: { raw : { } },
-  date: { raw : { } },
+  // date: { raw : { } },
   website_area: { raw: { } },
   product_version: { raw : { } },
   product_name: { raw : { } },
-  author: { raw : { } },
+  // author: { raw : { } },
   body: { raw: {}, snippet: { size: 200, fallback: true } }
 }
 
 const queryFacets = {
-  website_area: { type: "value", size: 10 },
+  // website_area: { type: "value", size: 10 },
   product_name: { type: "value", size: 30 }
 }
 
