@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
 .search-container {
 
   @import 'SearchUIComponents.scss';
@@ -89,7 +89,7 @@
 
     &__sidebar {
       margin: 25px 0 25px 35px;
-      width: 196px;
+      width: 240px;
       flex: none;
     }
 
@@ -107,14 +107,14 @@
         min-height: 300px;
         background: white;
       }
-    
+
       &__search-box-wrapper {
         form {
           width: 100%;
         }
-      } 
+      }
     }
- 
+
     &__list {
       list-style-type: none;
       padding: 0;
@@ -139,7 +139,7 @@
   .search-container {
 
     $searchContainerClass: &;
-    
+
     &__search-result-layout {
       margin: 20px 0;
       &__sidebar {

@@ -35,9 +35,7 @@ const ResultLink = ({ result, ...props }) => {
 
 const getResultTitle = ({ result, className, onClickLink }) => {
   const {
-    title: { snippet: title, raw: rawTitle },
-    website_area: { raw: resultType },
-    product_version: productVersion
+    title: { snippet: title, raw: rawTitle }
   } = result
 
   return <div className={`${className}__title`}>
@@ -45,10 +43,6 @@ const getResultTitle = ({ result, className, onClickLink }) => {
     <div className={`${className}__title__text`}>
       {title && <ResultLink result={result} onClick={onClickLink} dangerouslySetInnerHTML={{ __html: title }}/>}
       {title === undefined && <ResultLink result={result} onClick={onClickLink}>{rawTitle}</ResultLink>}
-    </div>
-    <div className={`${className}__title__badges`}>
-      <div className={`${className}__title__badge`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
-      {productVersion !== undefined  && <div className={`${className}__title__badge`}>{productVersion.raw}</div>}
     </div>
   </div>
 }
@@ -58,12 +52,20 @@ const getResultContent = ({ result, className, onClickLink }) => {
     url: { raw: url },
     website_area: { raw: resultType },
     body: { snippet: body, raw: rawBody },
+    product_version: productVersion,
     author
   } = result
   return <div className={`${className}__content`}>
-    {<div className={`${className}__content__url`}>
-      <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
-    </div>}
+    <div className={`${className}__meta`}>
+      <div className={`${className}__meta__tags`}>
+        <div className={`${className}__meta__tag`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
+        {productVersion !== undefined  && <div className={`${className}__meta__tag`}>{productVersion.raw}</div>}
+      </div>
+      {<div className={`${className}__content__url`}>
+        <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
+      </div>}
+    </div>
+
     {body && <p className={`${className}__content__text`} dangerouslySetInnerHTML={{ __html: body }} />}
     {body === undefined && <p className={`${className}__content__text`}>
       {rawBody}

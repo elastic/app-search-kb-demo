@@ -34,7 +34,8 @@ const queryBaseResultFields = {
   website_area: { raw: { } },
   product_version: { raw : { } },
   product_name: { raw : { } },
-  author: { raw : { } }
+  author: { raw : { } },
+  body: { raw: {}, snippet: { size: 200, fallback: true } }
 }
 
 const queryFacets = {
@@ -54,7 +55,7 @@ const searchProviderConfig = {
     disjunctiveFacets: ['product_name', 'website_area'],
     result_fields: {
       ...queryBaseResultFields,
-      body: { raw: { }, snippet: { size: 200, fallback: true } }
+      body: { raw: {}, snippet: { size: 200, fallback: true } }
     }
   },
   initialState: {
