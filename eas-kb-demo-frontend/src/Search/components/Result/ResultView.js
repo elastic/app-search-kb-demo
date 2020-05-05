@@ -68,14 +68,14 @@ const getResultContent = ({ result, className, onClickLink }) => {
     author
   } = result
   return <div className={`${className}__content`}>
-    {resultType === 'documentation' && <div className={`${className}__content__url`}>
+    {<div className={`${className}__content__url`}>
       <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
     </div>}
-    {resultType === 'documentation' && body && <p className={`${className}__content__text`}>
+    {body && <p className={`${className}__content__text`}>
       {body.raw}
     </p>}
     {resultType === 'discuss' && <div className={`${className}__content`}>
-      Posted {author && author.raw && <>by <b>{author.raw}</b></>} on <b>{getFormattedDate(result.date.raw)}</b>
+      Posted {author && author.raw && <>by <b>{author.raw}</b></>}
     </div>}
   </div>
 }
