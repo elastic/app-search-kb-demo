@@ -27,15 +27,15 @@ describe('Homepage', () => {
     describe('Content', () => {
       describe('Help text', () => {
         it('has title', () => {
-          cy.contains('.app__content h1', 'Need help?')
+          cy.contains('.app__content h1', 'Help Center')
         })
 
         it('has title', () => {
-          cy.contains('.search-container-home__title  h1', 'Need help?')
+          cy.contains('.search-container-home__title  h1', 'Help Center')
         })
 
         it('has description', () => {
-          cy.contains('.search-container-home__title  p', 'Skip the support line and search for your issue in our knowledgebase.')
+          cy.contains('.search-container-home__title  p', 'Skip the support line and search for your issue in our knowledge base.')
         })
       })
 

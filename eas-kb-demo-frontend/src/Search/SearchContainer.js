@@ -70,7 +70,7 @@ class HomeView extends React.Component {
     return (
       <div className="search-container-home__title">
         <h1>Help Center</h1>
-        <p>Skip the support line and search for your issue in our knowledgebase.</p>
+        <p>Skip the support line and search for your issue in our knowledge base.</p>
       </div>
     )
   }
