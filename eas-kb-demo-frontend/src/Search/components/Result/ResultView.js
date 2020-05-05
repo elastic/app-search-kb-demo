@@ -64,15 +64,17 @@ const getResultContent = ({ result, className, onClickLink }) => {
   const {
     url: { raw: url },
     website_area: { raw: resultType },
-    body,
+    body: { snippet: body, raw: rawBody },
     author
   } = result
+  console.log(body)
   return <div className={`${className}__content`}>
     {<div className={`${className}__content__url`}>
       <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
     </div>}
-    {body && <p className={`${className}__content__text`}>
-      {body.raw}
+    {body && <p className={`${className}__content__text`} dangerouslySetInnerHTML={{ __html: body }} />}
+    {body === undefined && <p className={`${className}__content__text`}>
+      {rawBody}
     </p>}
     {resultType === 'discuss' && <div className={`${className}__content`}>
       Posted {author && author.raw && <>by <b>{author.raw}</b></>}

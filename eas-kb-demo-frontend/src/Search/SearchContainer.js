@@ -54,7 +54,7 @@ const searchProviderConfig = {
     disjunctiveFacets: ['product_name', 'website_area'],
     result_fields: {
       ...queryBaseResultFields,
-      body: { raw: { } }
+      body: { raw: { }, snippet: { size: 200, fallback: true } }
     }
   },
   initialState: {

@@ -96,6 +96,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
       margin: 13px 0 0 0;
+
+      em {
+        background: rgba(#F5A700, 0.1);
+        color: black;
+        font-style: normal;
+        font-weight: 600;
+        padding: 2px;
+      }
     }
 
     b {
@@ -115,11 +123,6 @@
       font-size: 21px;
       a:hover {
         color: #006DE4;
-      }
-
-      em {
-        background: transparent;
-        padding: 0;
       }
     }
   }
