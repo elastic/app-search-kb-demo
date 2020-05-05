@@ -22,6 +22,7 @@ import React from 'react';
 import './Facets.scss';
 
 const FacetView = (props) => {
+  console.log(props)
   const { label, options, onSelect, onRemove, optionView, icon, values } = props
 
   const onShowAll = (ev) => {
