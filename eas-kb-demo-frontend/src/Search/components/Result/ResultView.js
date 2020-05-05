@@ -21,16 +21,9 @@ import React from 'react';
 
 import './Result.scss';
 
-const dateLocale = 'en-US';
-const dateFormatOptions = { year: "numeric", month: "long", day: "numeric" };
-
 const productIconClassName = ({ result }) => {
   const { product_name: productName } = result;
   return `product-icon ${productName ? `product-icon__${productName.raw.replace(/\s+/g, '-').toLowerCase()}` : ''}`
-}
-
-const getFormattedDate = (date) => {
-  return new Date(date).toLocaleString(dateLocale, dateFormatOptions)
 }
 
 const ResultLink = ({ result, ...props }) => {
