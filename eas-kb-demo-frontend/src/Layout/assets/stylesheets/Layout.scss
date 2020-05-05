@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
  .layout {
   &__header {
     width: 100%;
@@ -26,7 +26,7 @@
     position: absolute;
     background: white;
     box-shadow: 0px 0.498106px 1.1069px rgba(0, 0, 0, 0.0365489), 0px 1.19702px 2.66004px rgba(0, 0, 0, 0.0525061), 0px 2.25388px 5.00862px rgba(0, 0, 0, 0.065), 0px 4.02054px 8.93452px rgba(0, 0, 0, 0.0774939), 0px 7.51997px 16.711px rgba(0, 0, 0, 0.0934511), 0px 18px 40px rgba(0, 0, 0, 0.13);
-  
+
     &__content {
       display: flex;
       height: 100%;
@@ -39,6 +39,10 @@
     &__logo {
       margin: 23px auto;
       flex: 1;
+
+      &__img {
+        height: 1.5rem;
+      }
     }
 
     &__action {

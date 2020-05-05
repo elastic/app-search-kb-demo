@@ -62,13 +62,13 @@ const searchProviderConfig = {
   }
 }
 
-const searchBarInputProps = { placeholder: 'Search...', 'data-testid': 'search-bar' }
+const searchBarInputProps = { placeholder: 'Search...', 'data-testid': 'search-bar', autoFocus: true }
 
 class HomeView extends React.Component {
   renderTitle() {
     return (
       <div className="search-container-home__title">
-        <h1>Need help?</h1>
+        <h1>Help Center</h1>
         <p>Skip the support line and search for your issue in our knowledgebase.</p>
       </div>
     )

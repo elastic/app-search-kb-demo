@@ -19,7 +19,7 @@
 
  import React from 'react';
 
-import logo from './assets/images/elastic-logo.svg';
+import logo from './assets/images/searchco-logo.svg';
 
 import './assets/stylesheets/Layout.scss';
 
@@ -27,7 +27,7 @@ const Header = (props) => {
   return <header className="layout__header">
     <div className="layout__header__content">
       <div className="layout__header__logo">
-        <a href='/'><img id="header-logo" src={logo} alt="Elastic logo" /></a>
+        <a href='/'><img id="header-logo" className="layout__header__logo__img" src={logo} alt="Elastic logo" /></a>
       </div>
       <div className="layout__header__actions">
         {props.children}
