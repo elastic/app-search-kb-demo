@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
 .search-container {
   .facet {
     &:not(:first-child) {
@@ -47,7 +47,12 @@
       &__link {
         display: flex;
         align-items: center;
-  
+
+        &__count {
+          margin-left: auto;
+          color: #96A2B5;
+        }
+
         .product-icon {
           margin: 0px 12px 0 0;
         }

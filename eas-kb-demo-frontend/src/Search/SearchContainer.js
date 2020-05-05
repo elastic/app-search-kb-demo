@@ -34,7 +34,8 @@ const queryBaseResultFields = {
   website_area: { raw: { } },
   product_version: { raw : { } },
   product_name: { raw : { } },
-  author: { raw : { } }
+  author: { raw : { } },
+  body: { raw: {}, snippet: { size: 200, fallback: true } }
 }
 
 const queryFacets = {
@@ -54,7 +55,7 @@ const searchProviderConfig = {
     disjunctiveFacets: ['product_name', 'website_area'],
     result_fields: {
       ...queryBaseResultFields,
-      body: { raw: { } }
+      body: { raw: {}, snippet: { size: 200, fallback: true } }
     }
   },
   initialState: {
@@ -62,14 +63,14 @@ const searchProviderConfig = {
   }
 }
 
-const searchBarInputProps = { placeholder: 'Search...', 'data-testid': 'search-bar' }
+const searchBarInputProps = { placeholder: 'Search...', 'data-testid': 'search-bar', autoFocus: true }
 
 class HomeView extends React.Component {
   renderTitle() {
     return (
       <div className="search-container-home__title">
-        <h1>Need help?</h1>
-        <p>Skip the support line and search for your issue in our knowledgebase.</p>
+        <h1>Help Center</h1>
+        <p>Skip the support line and search for your issue in our knowledge base.</p>
       </div>
     )
   }

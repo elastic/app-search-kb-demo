@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
  @mixin search-result {
   $resultClass: &;
 
@@ -37,28 +37,9 @@
       flex: none;
     }
 
-    &__badges {
-      flex: 1;
-      display: flex;
-    }
-
-    &__badge {
-      padding: 1px 8px;
-      border: 1px solid #D3DAE6;
-      border-radius: 2px;
-      display: inline-block;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 18px;
-      margin: 0 0 0 4px;
-    }
-
     &__text {
       font-weight: 600;
-      font-size: 18px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
+      font-size: 16px;
       display: inline-block;
       margin: 0 10px 0 0;
 
@@ -71,12 +52,34 @@
     }
   }
 
+  &__meta {
+    display: flex;
+    align-items: center;
+
+    &__tags {
+      display: flex;
+      align-items: center;
+    }
+
+    &__tag {
+      padding-right: .5rem;
+      font-weight: 600;
+      color: #333742;
+
+      &:after {
+        content: '•';
+        padding-left: .5rem;
+        color: #C2C3C6;
+      }
+    }
+  }
+
   &__content {
     padding: 8px 0 0;
     font-size: 13px;
     line-height: 16px;
     color: #69707D;
-    
+
     &__url {
       width: 100%;
       text-overflow: ellipsis;
@@ -96,53 +99,49 @@
       overflow: hidden;
       text-overflow: ellipsis;
       margin: 13px 0 0 0;
+      line-height: 1.45;
+
+      em {
+        background: rgba(#F5A700, 0.1);
+        color: black;
+        font-style: normal;
+        font-weight: 600;
+        padding: 2px;
+      }
     }
 
     b {
       color: #017D73;
     }
   }
-
-  &__type-discuss {
-    background: #F5F7FA;
-    border-radius: 7px;
-    padding: 10px;
-
-    & #{$resultClass}__title {  
-      &__text {
-        font-size: 16px;
-      }
-
-      &__badge {
-        background: #D3DAE6;
-      }
-    }
-  }
 }
 
 .search-container {
-  
-  &__search-result-layout__list__result {
-    @include search-result;
-    margin: 0;
-    padding: 16px 0px;
 
-    &__title__text {
-      font-size: 21px;
-      a:hover {
-        color: #006DE4;
+  &__search-result-layout__list {
+    li {
+      + li {
+        border-top: 1px solid #F5F7FA;
       }
+    }
 
-      em {
-        background: transparent;
-        padding: 0;
+    &__result {
+      @include search-result;
+      margin: 0;
+      padding: 1.25rem 0.5rem;
+
+      &__title__text {
+        font-size: 21px;
+        a:hover {
+          color: #006DE4;
+        }
       }
     }
   }
 
   &__autocomplete {
     [aria-selected=true] {
-      background: rgba(#006DE4, 0.15);
+      background: rgba(#006DE4, 0.10);
     }
 
     &__result {

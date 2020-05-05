@@ -21,16 +21,9 @@ import React from 'react';
 
 import './Result.scss';
 
-const dateLocale = 'en-US';
-const dateFormatOptions = { year: "numeric", month: "long", day: "numeric" };
-
 const productIconClassName = ({ result }) => {
   const { product_name: productName } = result;
   return `product-icon ${productName ? `product-icon__${productName.raw.replace(/\s+/g, '-').toLowerCase()}` : ''}`
-}
-
-const getFormattedDate = (date) => {
-  return new Date(date).toLocaleString(dateLocale, dateFormatOptions)
 }
 
 const ResultLink = ({ result, ...props }) => {
@@ -42,9 +35,7 @@ const ResultLink = ({ result, ...props }) => {
 
 const getResultTitle = ({ result, className, onClickLink }) => {
   const {
-    title: { snippet: title, raw: rawTitle },
-    website_area: { raw: resultType },
-    product_version: productVersion
+    title: { snippet: title, raw: rawTitle }
   } = result
 
   return <div className={`${className}__title`}>
@@ -53,10 +44,6 @@ const getResultTitle = ({ result, className, onClickLink }) => {
       {title && <ResultLink result={result} onClick={onClickLink} dangerouslySetInnerHTML={{ __html: title }}/>}
       {title === undefined && <ResultLink result={result} onClick={onClickLink}>{rawTitle}</ResultLink>}
     </div>
-    <div className={`${className}__title__badges`}>
-      <div className={`${className}__title__badge`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
-      {productVersion !== undefined  && <div className={`${className}__title__badge`}>{productVersion.raw}</div>}
-    </div>
   </div>
 }
 
@@ -64,18 +51,27 @@ const getResultContent = ({ result, className, onClickLink }) => {
   const {
     url: { raw: url },
     website_area: { raw: resultType },
-    body,
+    body: { snippet: body, raw: rawBody },
+    product_version: productVersion,
     author
   } = result
   return <div className={`${className}__content`}>
-    {resultType === 'documentation' && <div className={`${className}__content__url`}>
-      <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
-    </div>}
-    {resultType === 'documentation' && body && <p className={`${className}__content__text`}>
-      {body.raw}
+    <div className={`${className}__meta`}>
+      <div className={`${className}__meta__tags`}>
+        <div className={`${className}__meta__tag`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
+        {productVersion !== undefined  && <div className={`${className}__meta__tag`}>{productVersion.raw}</div>}
+      </div>
+      {<div className={`${className}__content__url`}>
+        <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
+      </div>}
+    </div>
+
+    {body && <p className={`${className}__content__text`} dangerouslySetInnerHTML={{ __html: body }} />}
+    {body === undefined && <p className={`${className}__content__text`}>
+      {rawBody}
     </p>}
     {resultType === 'discuss' && <div className={`${className}__content`}>
-      Posted {author && author.raw && <>by <b>{author.raw}</b></>} on <b>{getFormattedDate(result.date.raw)}</b>
+      Posted {author && author.raw && <>by <b>{author.raw}</b></>}
     </div>}
   </div>
 }

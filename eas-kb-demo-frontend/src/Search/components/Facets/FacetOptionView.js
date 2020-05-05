@@ -26,7 +26,7 @@ const productIconClassName = ({ value: productName }) => {
 };
 
 const FacetOptionView = (props) => {
-  const { value, selected, icon } = props
+  const { value, selected, icon, count } = props
   const label = props.label || value
   const onRemove = (ev) => {
     ev.preventDefault()
@@ -41,6 +41,7 @@ const FacetOptionView = (props) => {
     <a href="/" onClick={selected ? onRemove : onSelect} className='facet__option__link'>
       {icon && <div className={productIconClassName({value})} />}
       <span className="facet__option__link__text">{label}</span>
+      <span className="facet__option__link__count">{count}</span>
     </a>
   </li>
 };

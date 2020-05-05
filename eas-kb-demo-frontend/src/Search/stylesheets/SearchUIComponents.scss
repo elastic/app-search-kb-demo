@@ -16,16 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
 .sui-search-box {
   width: calc(100% - 40px);
   margin: 41px auto;
   max-width: 722px;
-  
+
   &__text-input {
     width: calc(100% - 56px);
     line-height: 25px;
-    background: #FFFFFF;
+    background: rgba(white, 0.95);
     padding: 22px 28px;
     box-shadow: 0px 0.815184px 1.81152px rgba(0, 0, 0, 0.0592299), 0px 2.25388px 5.00862px rgba(0, 0, 0, 0.085), 0px 5.42647px 12.0588px rgba(0, 0, 0, 0.11077), 0px 18px 40px rgba(0, 0, 0, 0.17);
     font-style: normal;
@@ -33,9 +33,16 @@
     font-size: 21px;
     line-height: 26px;
     border: none;
+    transition: all 0.2s ease;
 
     &:focus {
       outline: none;
+      background: white;
+      box-shadow:
+        0px 0.815184px 1.81152px rgba(0, 0, 0, 0.0992),
+        0px 2.25388px 5.00862px rgba(0, 0, 0, 0.125),
+        0px 10.43px 22.06px rgba(0, 0, 0, 0.1508),
+        0px 28px 60px rgba(0, 0, 0, 0.22);
     }
 
     &::placeholder {
@@ -70,6 +77,8 @@
 
   em {
     font-weight: bold;
+    font-style: normal;
+    color: #343741;
   }
 }
 
@@ -83,7 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-    
+
   & > li {
     display: inline-block;
     text-align: center;
@@ -96,7 +105,7 @@
     &.rc-pagination-jump-next, &.rc-pagination-jump-prev {
       .rc-pagination-item-link:after {
         content: '...'
-      } 
+      }
     }
 
     &.rc-pagination-prev, &.rc-pagination-next {
