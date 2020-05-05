@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-winlogbeat-64-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-winlogbeat-64-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="64" height="64"></rect>
+        <g id="Group" transform="translate(5.000000, 5.000000)" fill-rule="nonzero">
+            <polygon id="Stroke-1" fill="#00BFB2" points="3.26849658e-13 29 3.26849658e-13 26 55 26 55 29"></polygon>
+            <polygon id="Stroke-3" fill="#00BFB2" points="26 0 29 0 29 55 26 55"></polygon>
+            <polygon id="Stroke-5" fill="#535966" points="3 3 3 22 4.08562073e-14 22 4.08562073e-14 -3.55271368e-14 22 -3.55271368e-14 22 3"></polygon>
+            <polygon id="Stroke-7" fill="#535966" points="33 3 33 -3.55271368e-14 55 -3.55271368e-14 55 22 52 22 52 3"></polygon>
+            <polygon id="Stroke-9" fill="#535966" points="22 52 22 55 4.08562073e-14 55 4.08562073e-14 33 3 33 3 52"></polygon>
+            <polygon id="Stroke-11" fill="#535966" points="52 52 52 33 55 33 55 55 33 55 33 52"></polygon>
+        </g>
+    </g>
+</svg>

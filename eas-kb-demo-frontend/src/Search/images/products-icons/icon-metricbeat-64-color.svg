@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-metricbeat-64-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-metricbeat-64-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="64" height="64"></rect>
+        <g id="Group-7" transform="translate(3.000000, 3.000000)">
+            <path d="M29,33 C26.794,33 25,31.206 25,29 C25,26.794 26.794,25 29,25 C31.206,25 33,26.794 33,29 C33,31.206 31.206,33 29,33 L29,33 Z M39.502,21.09 L37.47,18.883 L32.836,23.151 C31.733,22.426 30.416,22 29,22 C25.14,22 22,25.141 22,29 C22,32.859 25.14,36 29,36 C32.86,36 36,32.859 36,29 C36,27.641 35.604,26.375 34.931,25.3 L39.502,21.09 Z" id="Fill-1" fill="#535966"></path>
+            <path d="M29,3 C14.664,3 3,14.663 3,29 C3,43.337 14.664,55 29,55 C43.336,55 55,43.337 55,29 C55,14.663 43.336,3 29,3 M29,58 C13.009,58 0,44.99 0,29 C0,13.01 13.009,0 29,0 C44.991,0 58,13.01 58,29 C58,44.99 44.991,58 29,58" id="Fill-3" fill="#535966"></path>
+            <path d="M51,29 L48,29 C48,18.523 39.477,10 29,10 C18.523,10 10,18.523 10,29 L7,29 C7,16.869 16.869,7 29,7 C41.131,7 51,16.869 51,29" id="Fill-5" fill="#00BFB2"></path>
+        </g>
+    </g>
+</svg>

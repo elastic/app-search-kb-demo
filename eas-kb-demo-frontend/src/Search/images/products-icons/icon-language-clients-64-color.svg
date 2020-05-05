@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-language-clients-64-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-language-clients-64-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="64" height="64"></rect>
+        <g id="Group" transform="translate(4.000000, 6.000000)" fill-rule="nonzero">
+            <polygon id="Stroke-1" fill="#00BFB2" points="34 25 34 22 45 22 45 25"></polygon>
+            <polygon id="Stroke-2" fill="#00BFB2" points="20 25 20 22 31 22 31 25"></polygon>
+            <path d="M51.5,50 C52.3285729,50 53,49.3285729 53,48.5 L53,4.5 C53,3.67142712 52.3285729,3 51.5,3 L4.5,3 C3.67142712,3 3,3.67142712 3,4.5 L3,48.5 C3,49.3285729 3.67142712,50 4.5,50 L51.5,50 Z M51.5,53 L4.5,53 C2.01457288,53 -4.61852778e-14,50.9854271 -4.61852778e-14,48.5 L-4.61852778e-14,4.5 C-4.61852778e-14,2.01457288 2.01457288,0 4.5,0 L51.5,0 C53.9854271,0 56,2.01457288 56,4.5 L56,48.5 C56,50.9854271 53.9854271,53 51.5,53 Z" id="Stroke-3" fill="#535966"></path>
+            <polygon id="Stroke-5" fill="#535966" points="0 11 0 8 55 8 55 11"></polygon>
+            <polygon id="Stroke-7" fill="#535966" points="16.8912814 28.2708839 14.7083186 30.3287161 8.45938143 23.6998 14.7083186 17.0708839 16.8912814 19.1287161 12.5822186 23.6998"></polygon>
+            <polygon id="Stroke-9" fill="#00BFB2" points="22 36 22 39 11 39 11 36"></polygon>
+            <polygon id="Stroke-11" fill="#00BFB2" points="36 36 36 39 25 39 25 36"></polygon>
+            <polygon id="Stroke-13" fill="#535966" points="38.6287242 33.128522 40.8116758 31.070678 47.0618023 37.7007838 40.8114924 44.3287166 38.6289076 42.2704834 42.9385977 37.7004162"></polygon>
+        </g>
+    </g>
+</svg>
