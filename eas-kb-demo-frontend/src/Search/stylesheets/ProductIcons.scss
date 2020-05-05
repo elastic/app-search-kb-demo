@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
 .product-icon {
   width: 16px;
   height: 16px;
@@ -32,6 +32,42 @@
     background-image: url(../images/products-icons/logo-app-search-64-color.svg);
   }
 
+  &__metricbeat {
+    background-image: url(../images/products-icons/icon-metricbeat-64-color.svg);
+  }
+
+  &__filebeat {
+    background-image: url(../images/products-icons/icon-filebeat-64-color.svg);
+  }
+
+  &__packetbeat {
+    background-image: url(../images/products-icons/icon-packetbeat-64-color.svg);
+  }
+
+  &__libbeat {
+    background-image: url(../images/products-icons/logo-beats-64-color.svg);
+  }
+
+  &__auditbeat {
+    background-image: url(../images/products-icons/icon-auditbeat-64-color.svg);
+  }
+
+  &__heartbeat {
+    background-image: url(../images/products-icons/icon-heartbeat-64-color.svg);
+  }
+
+  &__winlogbeat {
+    background-image: url(../images/products-icons/icon-winlogbeat-64-color.svg);
+  }
+
+  &__journalbeat {
+    background-image: url(../images/products-icons/logo-beats-64-color.svg);
+  }
+
+  &__functionbeat {
+    background-image: url(../images/products-icons/icon-function-beat-64-color.svg);
+  }
+
   &__beats {
     background-image: url(../images/products-icons/logo-beats-64-color.svg);
   }
@@ -40,11 +76,11 @@
     background-image: url(../images/products-icons/logo-cloud-64-color.svg);
   }
 
-  &__cloud-ece {
+  &__elastic-cloud-enterprise {
     background-image: url(../images/products-icons/logo-ece-64-color.svg);
   }
 
-  &__eck {
+  &__elastic-cloud-kubernetes {
     background-image: url(../images/products-icons/logo-eck-64-color.svg);
   }
 
@@ -90,5 +126,18 @@
 
   &__workplace-search {
     background-image: url(../images/products-icons/logo-workplace-search-64-color.svg);
+  }
+
+  &__clients {
+    background-image: url(../images/products-icons/icon-language-clients-64-color.svg);
+  }
+
+  &__machine-learning {
+    background-image: url(../images/products-icons/icon-machine-learning-64-color.svg);
+  }
+
+  &__elastic-logging-plugin,
+  &__logs {
+    background-image: url(../images/products-icons/icon-logging-64-color.svg);
   }
 }

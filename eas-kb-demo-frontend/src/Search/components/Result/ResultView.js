@@ -35,11 +35,12 @@ const ResultLink = ({ result, ...props }) => {
 
 const getResultTitle = ({ result, className, onClickLink }) => {
   const {
-    title: { snippet: title, raw: rawTitle }
+    title: { snippet: title, raw: rawTitle },
+    website_area: { raw: resultType }
   } = result
 
   return <div className={`${className}__title`}>
-    <div className={productIconClassName({ result })}></div>
+    {resultType === 'documentation' && <div className={productIconClassName({ result })}></div>}
     <div className={`${className}__title__text`}>
       {title && <ResultLink result={result} onClick={onClickLink} dangerouslySetInnerHTML={{ __html: title }}/>}
       {title === undefined && <ResultLink result={result} onClick={onClickLink}>{rawTitle}</ResultLink>}

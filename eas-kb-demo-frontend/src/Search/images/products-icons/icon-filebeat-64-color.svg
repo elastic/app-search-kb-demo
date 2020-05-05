@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-filebeat-64-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-filebeat-64-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="64" height="64"></rect>
+        <g id="Group" transform="translate(7.000000, 4.000000)" fill-rule="nonzero">
+            <path d="M33.3898748,3 L4.5,3 C3.67142712,3 3,3.67142712 3,4.5 L3,51.5 C3,52.3285729 3.67142712,53 4.5,53 L45.5,53 C46.3285729,53 47,52.3285729 47,51.5 L47,17.4938752 L33.3898748,3 Z M45.5,56 L4.5,56 C2.01457288,56 0,53.9854271 0,51.5 L0,4.5 C0,2.01457288 2.01457288,3.55271368e-15 4.5,3.55271368e-15 L34.6881252,3.55271368e-15 L50,16.3061248 L50,51.5 C50,53.9854271 47.9854271,56 45.5,56 Z" id="Stroke-1" fill="#535966"></path>
+            <polygon id="Stroke-3" fill="#00BFB2" points="11 35 11 32 39 32 39 35"></polygon>
+            <polygon id="Stroke-5" fill="#00BFB2" points="11 26 11 23 27 23 27 26"></polygon>
+            <polygon id="Stroke-7" fill="#00BFB2" points="11 44 11 41 39 41 39 44"></polygon>
+            <polygon id="Stroke-9" fill="#535966" points="36 16 49 16 49 19 33 19 33 2 36 2"></polygon>
+        </g>
+    </g>
+</svg>
