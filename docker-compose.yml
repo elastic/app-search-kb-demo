@@ -11,6 +11,8 @@ services:
     - "ELASTIC_PASSWORD=elasticpassword"
     - "xpack.security.enabled=true"
     - "xpack.license.self_generated.type=trial"
+    ports:
+    - 9200:9200
     ulimits:
       memlock:
         soft: -1
@@ -27,20 +29,20 @@ services:
     ports:
     - 3002:3002
   frontend:
-    build: 
+    build:
       context: '.'
       target: frontend
-    environment: 
+    environment:
     - "AS_BASE_URL=http://host.docker.internal:3002/"
     - "AS_USERNAME=app_search"
     - "AS_PASSWORD=password"
     ports:
     - 5000:5000
   dataimport:
-    build: 
+    build:
       context: '.'
       target: dataimport
-    environment: 
+    environment:
     - "AS_BASE_URL=http://host.docker.internal:3002/"
     - "AS_USERNAME=app_search"
     - "AS_PASSWORD=password"
