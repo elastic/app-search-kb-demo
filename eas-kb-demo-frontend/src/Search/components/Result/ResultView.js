@@ -53,14 +53,12 @@ const getResultContent = ({ result, className, onClickLink }) => {
     url: { raw: url },
     website_area: { raw: resultType },
     body: { snippet: body, raw: rawBody },
-    product_version: productVersion,
     author
   } = result
   return <div className={`${className}__content`}>
     <div className={`${className}__meta`}>
       <div className={`${className}__meta__tags`}>
         <div className={`${className}__meta__tag`}>{resultType === 'documentation' ? 'Documentation' : 'Discussion'}</div>
-        {productVersion !== undefined  && <div className={`${className}__meta__tag`}>{productVersion.raw}</div>}
       </div>
       {<div className={`${className}__content__url`}>
         <ResultLink result={result} onClick={onClickLink}>{url}</ResultLink>
