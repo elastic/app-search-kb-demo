@@ -78,11 +78,13 @@
   }
 
   &__ece,
+  &__cloud-ece,
   &__elastic-cloud-enterprise {
     background-image: url(../images/products-icons/logo-ece-64-color.svg);
   }
 
   &__eck,
+  &__elastic-cloud-on-kubernetes,
   &__elastic-cloud-kubernetes {
     background-image: url(../images/products-icons/logo-eck-64-color.svg);
   }
