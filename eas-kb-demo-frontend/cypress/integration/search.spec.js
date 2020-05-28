@@ -93,24 +93,10 @@ describe('Search result page', () => {
               cy.visit('/?q=' + searchQuery)
             })
 
-            describe('Page type facet', () => {    
-              it('should have a page type facet', () => {
-                cy.get('.search-container__search-result-layout__sidebar').within(() => {
-                  cy.get('.facet').first().within(() => {
-                    cy.get('.facet__title').contains('Type')
-                    cy.get('.facet__option:first-of-type').should('have.class', 'selected').contains('All')
-                    cy.get('.facet__option').not(':first-of-type').each((filterNode) => {
-                      cy.wrap(filterNode).find('.facet__option__link').click();
-                    })
-                  })
-                })
-              })
-            })
-
             describe('Product facet', () => {
               it('should have a product facet', () => {
                 cy.get('.search-container__search-result-layout__sidebar').within(() => {
-                  cy.get('.facet').eq(1).within(() => {
+                  cy.get('.facet').first().within(() => {
                     cy.get('.facet__title').contains('Product')
                     cy.get('.facet__option:first-of-type').should('have.class', 'selected').contains('All')
                     cy.get('.facet__option').not(':first-of-type').each((filterNode) => {
