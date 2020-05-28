@@ -30,7 +30,7 @@ docker-compose up -d
 ```
 
 It could take few minutes, for the stack to be fully booted. Once finished, you should be able to access:
-- App Search admin at http://host.docker.internal:3002 using `app_search`/ `password` credentials
+- App Search admin at http://host.docker.internal:3002 using `enterprise_search`/ `password` credentials
 - The frontend at http://host.docker.internal:5000
 
 Note:
@@ -92,7 +92,7 @@ docker-compose up -d
 
 After the stack will have finished to start, you can then access to App Search through your browser at http://localhost:3002 with the following credentials:
 
-- **login:** `app_search`
+- **login:** `enterprise_search`
 - **password:** `password`
 
 **Notes :**
@@ -102,7 +102,7 @@ You have to start a new trial for your App Search instance using the following c
 
 ```bash
 docker-compose exec elasticsearch  curl -XPOST -uelastic:elasticpassword "localhost:9200/_license/start_trial?acknowledge=true"
-docker-compose restart app-search
+docker-compose restart enterprise_search
 ```
 - When using Docker for Mac, please make sure you have at least 4GiB of memory allocated to Docker (`Preferences > Advanced`). <br />
   Out of memory errors can cause ElasticSearch or App Search container to be killed (`docker logs --tail` can help to detect it).
